@@ -22,8 +22,7 @@ public class Main {
 
 		System.out.println("This is the IN2030 Asp interpreter (" +
 				version + ")");
-		System.out.println("utviklet av NN og MM");
-
+		
 		for (String a : arg) {
 			if (a.equals("-logE")) {
 				logE = true;

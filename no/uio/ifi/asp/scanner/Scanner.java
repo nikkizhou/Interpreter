@@ -61,17 +61,17 @@ public class Scanner {
 
 		String line = null;
 		try {
-			if (sourceFile != null) {
+			if (sourceFile!=null) {
 				line = sourceFile.readLine();
+				if (line == null) {
+					sourceFile.close();
+					sourceFile = null;
+					// if the line is not empty, log it out
+				} else {
+					Main.log.noteSourceLine(curLineNum(), line);
+				}
 			}
 			
-			if (line == null) {
-				sourceFile.close();
-				sourceFile = null;
-				// if the line is not empty, log it out
-			} else {
-				Main.log.noteSourceLine(curLineNum(), line);
-			}
 		} catch (IOException e) {
 			sourceFile = null;
 			scannerError("Unspecified I/O error!");
@@ -108,6 +108,7 @@ public class Scanner {
 
 			for (Token t : curLineTokens)
 				Main.log.noteToken(t);
+			
 		}
 		
 
@@ -132,7 +133,7 @@ public class Scanner {
 		StringBuilder linjeBuf = new StringBuilder(s);
 		List<Character> tegner = Arrays.asList(' ', '\t');
 
-		while (linjeBuf.length()!=0 && n<linjeBuf.length()&&tegner.contains(linjeBuf.charAt(n))) {
+		while (n<linjeBuf.length() && tegner.contains(linjeBuf.charAt(n))) {
 			if (linjeBuf.charAt(0) == ' ') {
 				n++;
 			} else {
