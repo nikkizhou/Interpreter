@@ -9,18 +9,20 @@ import static no.uio.ifi.asp.scanner.TokenKind.*;
 
 public class Token {
 	public TokenKind kind;
-	public String name, stringLit;
-	public long integerLit;
-	public double floatLit;
+	// public String name, stringLit;
+	// public long integerLit;
+	// public double floatLit;
+	public Object literal;
 	public int lineNum;
 
 	Token(TokenKind k) {
-		this(k, 0);
+		this(k, 0,null);
 	}
 
-	Token(TokenKind k, int lNum) {
+	Token(TokenKind k, int lNum, Object lit) {
 		kind = k;
 		lineNum = lNum;
+		literal = lit;
 	}
 
 	void checkResWords() {
@@ -28,7 +30,7 @@ public class Token {
 			return;
 
 		for (TokenKind tk : EnumSet.range(andToken, yieldToken)) {
-			if (name.equals(tk.image)) {
+			if (literal.equals(tk.image)) {
 				kind = tk;
 				break;
 			}
@@ -43,19 +45,22 @@ public class Token {
 
 		switch (kind) {
 			case floatToken:
-				t += ": " + floatLit;
+				t += ": " + literal;
 				break;
 			case integerToken:
-				t += ": " + integerLit;
+				t += ": " + literal;
 				break;
 			case nameToken:
-				t += ": " + name;
+				t += ": " + literal;
 				break;
 			case stringToken:
-				if (stringLit.indexOf('"') >= 0)
-					t += ": '" + stringLit + "'";
-				else
-					t += ": " + '"' + stringLit + '"';
+				t += ": '" + literal + "'";
+
+
+				// if (literal.indexOf('"') >= 0)
+				// 	t += ": '" + literal + "'";
+				// else
+				// 	t += ": " + '"' + literal + '"';
 				break;
 		}
 		return t;

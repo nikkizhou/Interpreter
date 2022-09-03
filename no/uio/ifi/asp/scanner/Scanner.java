@@ -61,60 +61,135 @@ public class Scanner {
 
 		String line = null;
 		try {
-			if (sourceFile!=null) {
+			if (sourceFile != null) {
 				line = sourceFile.readLine();
+				// in the end of the file, add corresponding dedentToken to curLineTokens based on indents 
 				if (line == null) {
+					//System.out.println(indents + " indents");
+					for (int value : indents) {
+						if (value > 0)
+							curLineTokens.add(new Token(dedentToken));
+					}
+					//System.out.println(curLineTokens+ "curLineTokens");
+          curLineTokens.add(new Token(dedentToken));
 					sourceFile.close();
 					sourceFile = null;
-					// if the line is not empty, log it out
+
 				} else {
 					Main.log.noteSourceLine(curLineNum(), line);
+
+					boolean erBlank = line.trim().isEmpty() || line.charAt(0) == '#';
+					if (erBlank)
+						return;
+
+					handelIndentToken(line);
+
+					
+					for (int i = 0; i < line.trim().length(); i++) {
+						handleOprTokens(line, i);
+						handleNameLitTokens(line,i);
+					}
+					
+
+					// Terminate line:
+					//System.out.println(indents+" indents");
+					addToken(newLineToken);
 				}
+
+				for (Token t : curLineTokens)
+					Main.log.noteToken(t);
 			}
-			
+
 		} catch (IOException e) {
 			sourceFile = null;
 			scannerError("Unspecified I/O error!");
 		}
 
 		// -- Must be changed in part 1:
-		if (line != null) {
-			line = expandLeadingTabs(line);
-			int n = findIndent(line);
-
-			if (line.length() == n || line.charAt(0) == '#')
-				return;
-
-			if (n > indents.peek()) {
-				indents.push(n);
-				curLineTokens.add(new Token(indentToken, curLineNum()));
-			}
-
-			while (n < indents.peek()) {
-				indents.pop();
-				curLineTokens.add(new Token(dedentToken, curLineNum()));
-			}
-
-			if (n != indents.peek())
-				scannerError("Expected indents number: " + indents.peek() + ", but got: " + n);
-
-			for (int value : indents) {
-				if (value > 0)
-					curLineTokens.add(new Token(dedentToken, curLineNum()));
-			}
-
-			// Terminate line:
-			curLineTokens.add(new Token(newLineToken, curLineNum()));
-
-			for (Token t : curLineTokens)
-				Main.log.noteToken(t);
-			
-		}
-		
-
 		//??? Om nødvendig, kaller curToken på readNextLine for å få lest inn flere linjer.
 	}
 	
+	public void handelIndentToken(String line) {
+		line = expandLeadingTabs(line);
+		int n = findIndent(line);
+		if (n > indents.peek()) {
+			indents.push(n);
+			addToken(indentToken);
+		}
+		while (n < indents.peek()) {
+			indents.pop();
+			addToken(dedentToken);
+		}
+		if (n != indents.peek())
+			scannerError("Expected indents number: " + indents.peek() + ", but got: " + n);
+	}
+
+	
+	public void handleOprTokens(String line, int i) {
+		String curChar = ""+line.charAt(i);
+		String nextChar = i<line.length()-1 ? "" + line.charAt(i + 1) : "";
+		String lastChar = i>0 ? "" + line.charAt(i-1) : "";
+		
+		for (TokenKind tk : EnumSet.range(astToken, semicolonToken)) {
+			if (curChar.equals(tk.image) ) {
+				switch (curChar) {
+					case "=":
+						boolean secondSymbol = Arrays.asList("=", "!", "<", ">").contains(lastChar);
+						if (!secondSymbol) {
+							addToken(nextChar.equals("=") ? doubleEqualToken : equalToken);
+						}
+						break;
+					case "/":
+						if (!lastChar.equals("/")) {
+							addToken(nextChar.equals("/") ? doubleSlashToken : slashToken);
+						}
+					  break;
+					case ">": addToken(nextChar.equals("=") ? greaterEqualToken : greaterToken); break;
+					case "<": addToken(nextChar.equals("=") ? lessEqualToken : lessToken); break;
+					case "!": addToken(nextChar.equals("=") ? notEqualToken : null); break;
+					default:
+						addToken(tk);
+						break;
+				}
+			}
+		}
+	}
+
+	public void handleNameLitTokens(String line, int i) {
+		char nextChar = i < line.length() - 1 ?  line.charAt(i + 1) : ' ';
+		int start = i;
+		TokenKind kind = null;
+		String value = null;
+
+		if (isLetterAZ(line.charAt(i)) ) {
+			
+		} else if(isDigit(line.charAt(i))){
+			
+		} else if (Arrays.asList('"', '\'').contains(line.charAt(i))) {
+			while (!Arrays.asList('"', '\'').contains(nextChar)) {
+				i++;
+			}
+			value = line.substring(start + 1, i - 1);
+			kind = stringToken;
+		}
+		
+		curLineTokens.add(new Token(kind, curLineNum(), value));
+
+		// String element = line.substring(start, i);
+		// TokenKind kind = keywords.get(element);
+		// if (kind == null)
+		// 	kind = nameToken;
+		// addToken(kind);
+	}
+	
+	public void addToken(TokenKind kind) {
+		if (kind!=null) curLineTokens.add(new Token(kind, curLineNum(), null));
+	}
+
+	public void addToken(TokenKind kind, String value) {
+		if (kind != null)
+			curLineTokens.add(new Token(kind, curLineNum(), value));
+	}
 
 	public int curLineNum() {
 		return sourceFile != null ? sourceFile.getLineNumber() : 0;
@@ -127,10 +202,10 @@ public class Scanner {
 	}
 
 	// Denne metoden er privat og kalles bare fra readNextLine.
-	private String expandLeadingTabs(String s) {
+	private String expandLeadingTabs(String line) {
 		// -- Must be changed in part 1:
 		int n = 0;
-		StringBuilder linjeBuf = new StringBuilder(s);
+		StringBuilder linjeBuf = new StringBuilder(line);
 		List<Character> tegner = Arrays.asList(' ', '\t');
 
 		while (n<linjeBuf.length() && tegner.contains(linjeBuf.charAt(n))) {
@@ -155,7 +230,6 @@ public class Scanner {
 	public boolean isCompOpr(String s) {
 		TokenKind k = curToken().kind;
 		// -- Must be changed in part 2:
-		//return k == doubleEqualToken;
 		return false;
 	}
 

@@ -1,0 +1,74 @@
+   1: 
+   2: # Finn alle primtall opp til n
+   3: # ved hjelp av teknikken kalt «Eratosthenes' sil».
+   4: 
+   5: n = 1000
+Scanner: NEWLINE token on line 5
+   6: primes = [True] * (n+1)
+Scanner: NEWLINE token on line 6
+   7: 
+   8: def find_primes ():
+Scanner: NEWLINE token on line 8
+   9:    for i1 in range(2,n+1):
+Scanner: INDENT token on line 9
+Scanner: NEWLINE token on line 9
+  10:       i2 = i1 * i1
+Scanner: INDENT token on line 10
+Scanner: NEWLINE token on line 10
+  11:       while i2 <= n:
+Scanner: NEWLINE token on line 11
+  12:          primes[i2] = False
+Scanner: INDENT token on line 12
+Scanner: NEWLINE token on line 12
+  13:          i2 = i2 + i1
+Scanner: NEWLINE token on line 13
+  14: 
+  15: def format (n, w):
+Scanner: DEDENT token on line 15
+Scanner: DEDENT token on line 15
+Scanner: DEDENT token on line 15
+Scanner: NEWLINE token on line 15
+  16:    res = str(n)
+Scanner: INDENT token on line 16
+Scanner: NEWLINE token on line 16
+  17:    while len(res) < w: res = ' '+res
+Scanner: NEWLINE token on line 17
+  18:    return res
+Scanner: NEWLINE token on line 18
+  19: 
+  20: def list_primes():
+Scanner: DEDENT token on line 20
+Scanner: NEWLINE token on line 20
+  21:     n_printed = 0
+Scanner: INDENT token on line 21
+Scanner: NEWLINE token on line 21
+  22:     line_buf = ''
+Scanner: NEWLINE token on line 22
+  23:     for i in range(2,n+1):
+Scanner: NEWLINE token on line 23
+  24:        if primes[i]:
+Scanner: INDENT token on line 24
+Scanner: NEWLINE token on line 24
+  25:           if n_printed > 0 and n_printed%10 == 0:
+Scanner: INDENT token on line 25
+Scanner: NEWLINE token on line 25
+  26:              print(line_buf)
+Scanner: INDENT token on line 26
+Scanner: NEWLINE token on line 26
+  27:              line_buf = ''
+Scanner: NEWLINE token on line 27
+  28:           line_buf = line_buf + format(i,4)
+Scanner: DEDENT token on line 28
+Scanner: NEWLINE token on line 28
+  29:           n_printed = n_printed + 1
+Scanner: NEWLINE token on line 29
+  30:     print(line_buf)
+Scanner: DEDENT token on line 30
+Scanner: DEDENT token on line 30
+Scanner: NEWLINE token on line 30
+  31: 
+  32: find_primes()
+Scanner: DEDENT token on line 32
+Scanner: NEWLINE token on line 32
+  33: list_primes()
+Scanner: NEWLINE token on line 33
