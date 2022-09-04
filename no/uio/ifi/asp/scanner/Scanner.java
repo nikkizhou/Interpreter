@@ -176,22 +176,15 @@ public class Scanner {
 			// handle integer and float literal
 		} else if (isDigit(line.charAt(start))) {
 			current++;
-			while (current < line.length()-1) {
-				boolean isDigitOrDot = isDigit(line.charAt(current)) || line.charAt(current) == '.';
-				
-				if (isDigitOrDot) {
-					System.out.println("current in 182: "+current);
-					current++;
-				} else {
-					break;
-				}
+			while (current < line.length() && (isDigit(line.charAt(current)) || line.charAt(current) == '.')) {
+				current++;
 			}
 			value = line.substring(start, current);
-			System.out.println("value in 184: "+value);
-			kind = value.contains(".") ? floatToken:integerToken;
-			
-		//handle string literal
-	} else if (Arrays.asList('"', '\'').contains(line.charAt(start))) {
+			System.out.println("value in 184: " + value);
+			kind = value.contains(".") ? floatToken : integerToken;
+
+			//handle string literal
+		} else if (Arrays.asList('"', '\'').contains(line.charAt(start))) {
 			current++;
 			while (line.charAt(start)!= line.charAt(current) && current < line.length() - 1) {
 				current++;
