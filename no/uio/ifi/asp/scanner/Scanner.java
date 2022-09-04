@@ -87,13 +87,13 @@ public class Scanner {
 					
 					for (int i = 0; i < line.trim().length(); i++) {
 						handleOprTokens(line, i);
-						handleNameLitTokens(line,i);
+						handleNameLitTokens(line, i);
 					}
 					
 
 					// Terminate line:
 					//System.out.println(indents+" indents");
-					addToken(newLineToken);
+					addToken(newLineToken,null);
 				}
 
 				for (Token t : curLineTokens)
@@ -114,11 +114,11 @@ public class Scanner {
 		int n = findIndent(line);
 		if (n > indents.peek()) {
 			indents.push(n);
-			addToken(indentToken);
+			addToken(indentToken,null);
 		}
 		while (n < indents.peek()) {
 			indents.pop();
-			addToken(dedentToken);
+			addToken(dedentToken,null);
 		}
 		if (n != indents.peek())
 			scannerError("Expected indents number: " + indents.peek() + ", but got: " + n);
@@ -136,27 +136,28 @@ public class Scanner {
 					case "=":
 						boolean secondSymbol = Arrays.asList("=", "!", "<", ">").contains(lastChar);
 						if (!secondSymbol) {
-							addToken(nextChar.equals("=") ? doubleEqualToken : equalToken);
+							addToken(nextChar.equals("=") ? doubleEqualToken : equalToken, null);
 						}
 						break;
 					case "/":
 						if (!lastChar.equals("/")) {
-							addToken(nextChar.equals("/") ? doubleSlashToken : slashToken);
+							addToken(nextChar.equals("/") ? doubleSlashToken : slashToken, null);
 						}
 					  break;
-					case ">": addToken(nextChar.equals("=") ? greaterEqualToken : greaterToken); break;
-					case "<": addToken(nextChar.equals("=") ? lessEqualToken : lessToken); break;
-					case "!": addToken(nextChar.equals("=") ? notEqualToken : null); break;
+					case ">": addToken(nextChar.equals("=") ? greaterEqualToken : greaterToken, null); break;
+					case "<": addToken(nextChar.equals("=") ? lessEqualToken : lessToken, null); break;
+					case "!": addToken(nextChar.equals("=") ? notEqualToken : null, null); break;
 					default:
-						addToken(tk);
+						addToken(tk, null);
 						break;
 				}
 			}
 		}
 	}
 
+	// isLastIndex(i)    return i line.length()
 	public void handleNameLitTokens(String line, int i) {
-		char nextChar = i < line.length() - 1 ?  line.charAt(i + 1) : ' ';
+		char nextChar = i < line.length()-1 ?  line.charAt(i + 1) : ' ';
 		int start = i;
 		TokenKind kind = null;
 		String value = null;
@@ -165,15 +166,20 @@ public class Scanner {
 			
 		} else if(isDigit(line.charAt(i))){
 			
-		} else if (Arrays.asList('"', '\'').contains(line.charAt(i))) {
-			while (!Arrays.asList('"', '\'').contains(nextChar)) {
+			// Arrays.asList('"', '\'').contains(line.charAt(i))
+			// !Arrays.asList('"', '\'').contains(nextChar)
+		} else if (line.charAt(start) == '"') {
+			i++;
+			while (line.charAt(i)!='"'&& i < line.length()-1) {
 				i++;
+				//nextChar = i < line.length() - 1 ? line.charAt(i + 1) : ' ';
+				System.out.println(line.charAt(i)+" current character in line 175 in Scanner");
 			}
-			value = line.substring(start + 1, i - 1);
+			value = line.substring(start + 1, i);
+			System.out.println("value in line 174 in Scanner: " + value);
 			kind = stringToken;
+			addToken(kind, value);
 		}
-		
-		curLineTokens.add(new Token(kind, curLineNum(), value));
 
 		// String element = line.substring(start, i);
 		// TokenKind kind = keywords.get(element);
@@ -182,13 +188,9 @@ public class Scanner {
 		// addToken(kind);
 	}
 	
-	public void addToken(TokenKind kind) {
-		if (kind!=null) curLineTokens.add(new Token(kind, curLineNum(), null));
-	}
-
 	public void addToken(TokenKind kind, String value) {
 		if (kind != null)
-			curLineTokens.add(new Token(kind, curLineNum(), value));
+			curLineTokens.add(new Token(kind, curLineNum(), value	));
 	}
 
 	public int curLineNum() {
