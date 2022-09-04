@@ -1,5 +1,3 @@
-// © 2021 Dag Langmyhr, Institutt for informatikk, Universitetet i Oslo
-
 package no.uio.ifi.asp.scanner;
 
 import java.io.*;
@@ -19,7 +17,8 @@ public class Scanner {
 	public Scanner(String fileName) {
 		curFileName = fileName;
 		indents.push(0);
-		
+
+		//try opening the file
 		try {
 			sourceFile = new LineNumberReader(
 					new InputStreamReader(
@@ -39,7 +38,7 @@ public class Scanner {
 		Main.error(m);
 	}
 
-	//return the first token in curLineTokens
+	// return the first token in curLineTokens
 	public Token curToken() {
 		// if current line is empty, jump to next line
 		while (curLineTokens.isEmpty()) {
@@ -55,7 +54,7 @@ public class Scanner {
 	}
 
 	// devide next line into tokens and add dem to curLineTokens
-  //Denne metoden er privat og kalles bare fra curToken.
+	// Denne metoden er privat og kalles bare fra curToken.
 	private void readNextLine() {
 		curLineTokens.clear();
 
@@ -63,37 +62,39 @@ public class Scanner {
 		try {
 			if (sourceFile != null) {
 				line = sourceFile.readLine();
-				// in the end of the file, add corresponding dedentToken to curLineTokens based on indents 
+				//after last line, add corresponding dedentToken to curLineTokens based on indents
 				if (line == null) {
-					//System.out.println(indents + " indents");
+					// System.out.println(indents + " indents");
 					for (int value : indents) {
 						if (value > 0)
 							curLineTokens.add(new Token(dedentToken));
 					}
-					//System.out.println(curLineTokens+ "curLineTokens");
-          curLineTokens.add(new Token(dedentToken));
+					// System.out.println(curLineTokens+ "curLineTokens");
+					curLineTokens.add(new Token(eofToken));
 					sourceFile.close();
 					sourceFile = null;
 
 				} else {
 					Main.log.noteSourceLine(curLineNum(), line);
 
+					//if the line is blank
 					boolean erBlank = line.trim().isEmpty() || line.charAt(0) == '#';
 					if (erBlank)
 						return;
 
+					//if the line includes indent or dedent
 					handelIndentToken(line);
 
-					
-					for (int i = 0; i < line.trim().length(); i++) {
-						handleOprTokens(line, i);
-						handleNameLitTokens(line, i);
+					// handle other tokens
+					int current = 0;
+					while (current < line.trim().length()) {
+						handleOprTokens(line.trim(), current);
+						current = handleNameLitTokens(line.trim(), current);
+						//System.out.println("current in for loop: " + current);
+						current++;
 					}
-					
 
-					// Terminate line:
-					//System.out.println(indents+" indents");
-					addToken(newLineToken,null);
+					addToken(newLineToken, null);
 				}
 
 				for (Token t : curLineTokens)
@@ -106,32 +107,32 @@ public class Scanner {
 		}
 
 		// -- Must be changed in part 1:
-		//??? Om nødvendig, kaller curToken på readNextLine for å få lest inn flere linjer.
+		// ??? Om nødvendig, kaller curToken på readNextLine for å få lest inn flere
+		// linjer.
 	}
-	
+
 	public void handelIndentToken(String line) {
 		line = expandLeadingTabs(line);
 		int n = findIndent(line);
 		if (n > indents.peek()) {
 			indents.push(n);
-			addToken(indentToken,null);
+			addToken(indentToken, null);
 		}
 		while (n < indents.peek()) {
 			indents.pop();
-			addToken(dedentToken,null);
+			addToken(dedentToken, null);
 		}
 		if (n != indents.peek())
 			scannerError("Expected indents number: " + indents.peek() + ", but got: " + n);
 	}
 
-	
 	public void handleOprTokens(String line, int i) {
-		String curChar = ""+line.charAt(i);
-		String nextChar = i<line.length()-1 ? "" + line.charAt(i + 1) : "";
-		String lastChar = i>0 ? "" + line.charAt(i-1) : "";
-		
+		String curChar = "" + line.charAt(i);
+		String nextChar = i < line.length() - 1 ? "" + line.charAt(i + 1) : "";
+		String lastChar = i > 0 ? "" + line.charAt(i - 1) : "";
+
 		for (TokenKind tk : EnumSet.range(astToken, semicolonToken)) {
-			if (curChar.equals(tk.image) ) {
+			if (curChar.equals(tk.image)) {
 				switch (curChar) {
 					case "=":
 						boolean secondSymbol = Arrays.asList("=", "!", "<", ">").contains(lastChar);
@@ -143,10 +144,16 @@ public class Scanner {
 						if (!lastChar.equals("/")) {
 							addToken(nextChar.equals("/") ? doubleSlashToken : slashToken, null);
 						}
-					  break;
-					case ">": addToken(nextChar.equals("=") ? greaterEqualToken : greaterToken, null); break;
-					case "<": addToken(nextChar.equals("=") ? lessEqualToken : lessToken, null); break;
-					case "!": addToken(nextChar.equals("=") ? notEqualToken : null, null); break;
+						break;
+					case ">":
+						addToken(nextChar.equals("=") ? greaterEqualToken : greaterToken, null);
+						break;
+					case "<":
+						addToken(nextChar.equals("=") ? lessEqualToken : lessToken, null);
+						break;
+					case "!":
+						addToken(nextChar.equals("=") ? notEqualToken : null, null);
+						break;
 					default:
 						addToken(tk, null);
 						break;
@@ -155,42 +162,58 @@ public class Scanner {
 		}
 	}
 
-	// isLastIndex(i)    return i line.length()
-	public void handleNameLitTokens(String line, int i) {
-		char nextChar = i < line.length()-1 ?  line.charAt(i + 1) : ' ';
-		int start = i;
+	// isLastIndex(i) return i line.length()
+	public int handleNameLitTokens(String line, int current) {
+		//char nextChar = i < line.length() - 1 ? line.charAt(i + 1) : ' ';
+		int start = current;
 		TokenKind kind = null;
 		String value = null;
+		
+		//handle name literal
+		if (isLetterAZ(line.charAt(start))) {
 
-		if (isLetterAZ(line.charAt(i)) ) {
-			
-		} else if(isDigit(line.charAt(i))){
-			
-			// Arrays.asList('"', '\'').contains(line.charAt(i))
-			// !Arrays.asList('"', '\'').contains(nextChar)
-		} else if (line.charAt(start) == '"') {
-			i++;
-			while (line.charAt(i)!='"'&& i < line.length()-1) {
-				i++;
-				//nextChar = i < line.length() - 1 ? line.charAt(i + 1) : ' ';
-				System.out.println(line.charAt(i)+" current character in line 175 in Scanner");
+
+			// handle integer and float literal
+		} else if (isDigit(line.charAt(start))) {
+			current++;
+			while (current < line.length()-1) {
+				boolean isDigitOrDot = isDigit(line.charAt(current)) || line.charAt(current) == '.';
+				
+				if (isDigitOrDot) {
+					System.out.println("current in 182: "+current);
+					current++;
+				} else {
+					break;
+				}
 			}
-			value = line.substring(start + 1, i);
-			System.out.println("value in line 174 in Scanner: " + value);
+			value = line.substring(start, current);
+			System.out.println("value in 184: "+value);
+			kind = value.contains(".") ? floatToken:integerToken;
+			
+		//handle string literal
+	} else if (Arrays.asList('"', '\'').contains(line.charAt(start))) {
+			current++;
+			while (line.charAt(start)!= line.charAt(current) && current < line.length() - 1) {
+				current++;
+			}
+			value = line.substring(start + 1, current);
 			kind = stringToken;
-			addToken(kind, value);
 		}
+		
+		addToken(kind, value);
+		return current;
 
 		// String element = line.substring(start, i);
 		// TokenKind kind = keywords.get(element);
 		// if (kind == null)
-		// 	kind = nameToken;
+		// kind = nameToken;
 		// addToken(kind);
 	}
-	
+
+
 	public void addToken(TokenKind kind, String value) {
 		if (kind != null)
-			curLineTokens.add(new Token(kind, curLineNum(), value	));
+			curLineTokens.add(new Token(kind, curLineNum(), value));
 	}
 
 	public int curLineNum() {
@@ -199,7 +222,8 @@ public class Scanner {
 
 	private int findIndent(String s) {
 		int indent = 0;
-		while (indent < s.length() && s.charAt(indent) == ' ') indent++;
+		while (indent < s.length() && s.charAt(indent) == ' ')
+			indent++;
 		return indent;
 	}
 
@@ -210,11 +234,11 @@ public class Scanner {
 		StringBuilder linjeBuf = new StringBuilder(line);
 		List<Character> tegner = Arrays.asList(' ', '\t');
 
-		while (n<linjeBuf.length() && tegner.contains(linjeBuf.charAt(n))) {
+		while (n < linjeBuf.length() && tegner.contains(linjeBuf.charAt(n))) {
 			if (linjeBuf.charAt(0) == ' ') {
 				n++;
 			} else {
-				linjeBuf.replace(n,n+1, " ".repeat(TABDIST - n % TABDIST));
+				linjeBuf.replace(n, n + 1, " ".repeat(TABDIST - n % TABDIST));
 				n += TABDIST - n % TABDIST;
 			}
 		}
