@@ -1,5 +1,3 @@
-//Must be changed in part 2: er det for del2?
-// Token.java, er det greit å kombinere alle literal til en??
 package no.uio.ifi.asp.scanner;
 
 import java.io.*;
@@ -42,7 +40,6 @@ public class Scanner {
 
 	// return the first token in curLineTokens
 	public Token curToken() {
-		// if current line is empty, jump to next line
 		while (curLineTokens.isEmpty()) {
 			readNextLine();
 		}
@@ -56,7 +53,6 @@ public class Scanner {
 	}
 
 	// devide next line into tokens and add dem to curLineTokens
-	// Denne metoden er privat og kalles bare fra curToken.
 	private void readNextLine() {
 		curLineTokens.clear();
 
@@ -66,16 +62,14 @@ public class Scanner {
 				line = sourceFile.readLine();
 				//after last line, add corresponding dedentToken to curLineTokens based on indents
 				if (line == null) {
-					// System.out.println(indents + " indents");
 					for (int value : indents) {
 						if (value > 0)
 							curLineTokens.add(new Token(dedentToken));
 					}
-					// System.out.println(curLineTokens+ "curLineTokens");
 					curLineTokens.add(new Token(eofToken));
 					sourceFile.close();
 					sourceFile = null;
-
+				
 				} else {
 					Main.log.noteSourceLine(curLineNum(), line);
 
@@ -92,7 +86,6 @@ public class Scanner {
 					while (current < line.trim().length()) {
 						handleOprTokens(line.trim(), current);
 						current = handleNameLitTokens(line.trim(), current);
-						//System.out.println("current in while loop 96: " + current);
 						current++;
 					}
 
@@ -107,10 +100,6 @@ public class Scanner {
 			sourceFile = null;
 			scannerError("Unspecified I/O error!");
 		}
-
-		// -- Must be changed in part 1:
-		// ??? Om nødvendig, kaller curToken på readNextLine for å få lest inn flere
-		// linjer.
 	}
 
 	public void handelIndentToken(String line) {
@@ -125,7 +114,7 @@ public class Scanner {
 			addToken(dedentToken, null);
 		}
 		if (n != indents.peek())
-			scannerError("Expected indents number: " + indents.peek() + ", but got: " + n);
+			scannerError("\nExpected indents number: " + indents.peek() + ", but got: " + n);
 	}
 
 	public void handleOprTokens(String line, int i) {
@@ -164,9 +153,7 @@ public class Scanner {
 		}
 	}
 
-	// isLastIndex(i) return i line.length()
 	public int handleNameLitTokens(String line, int current) {
-		//char nextChar = i < line.length() - 1 ? line.charAt(i + 1) : ' ';
 		int start = current;
 		TokenKind kind = null;
 		String value = null;
@@ -179,7 +166,6 @@ public class Scanner {
 			}
 
 			value = line.substring(start, current);
-			// if it's sd45sd$dd, how to fix???
 			for (TokenKind tk : EnumSet.range(andToken, yieldToken)) {
 				boolean isKeyWord = value != null && value.equals(tk.image);
 				if (!isKeyWord) {
@@ -187,8 +173,6 @@ public class Scanner {
 				} else {
 					addToken(tk, null);
 					return current - 1;
-					// kind = tk;
-					// value = null;
 				}
 			}
 
@@ -198,27 +182,29 @@ public class Scanner {
 				current++;
 			}
 			value = line.substring(start, current);
-			// !!! if . is the last digit in value, throw error
-			// if its 34kdsad, throw error
+			if (value.endsWith("."))
+				scannerError("\nInvalid float: "+value);
 			kind = value.contains(".") ? floatToken : integerToken;
-
 
 			//handle string literal
 		} else if (Arrays.asList('"', '\'').contains(line.charAt(start))) {
-			while (line.charAt(start) != line.charAt(current) && current < line.length() - 1) {
+			while (current < line.length() - 1&&line.charAt(start) != line.charAt(current) ) {
 				current++;
 			}
-			// print(str(day) + ". mars", y);
+			if (line.charAt(current) != line.charAt(start)) {
+				scannerError("\nLeft quote is provided, but right quote is missing in the same line");
+			}
 			value = line.substring(start + 1, current);
-			System.out.println("value line 212: "+value);
-			// !!! if value contains \n and it's not in the end, throw error
 			kind = stringToken;
+			current++;
+
+		} else if (Arrays.asList('.', '$','£','@').contains(line.charAt(start))) {
+			scannerError("\nThe symbol "+line.charAt(start)+" here is not valid");
 		}
 		
 		addToken(kind, value);
 		return current-1;
 	}
-
 
 	public void addToken(TokenKind kind, String value) {
 		if (kind != null){
@@ -254,9 +240,8 @@ public class Scanner {
 		return indent;
 	}
 
-	// Denne metoden er privat og kalles bare fra readNextLine.
+	
 	private String expandLeadingTabs(String line) {
-		// -- Must be changed in part 1:
 		int n = 0;
 		StringBuilder linjeBuf = new StringBuilder(line);
 		List<Character> tegner = Arrays.asList(' ', '\t');

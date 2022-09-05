@@ -6,7 +6,7 @@ def boblesorter (a):
         endret = False
         for i in range(1,len(a)):
             if a[i-1] > a[i]:
-                t = a[i-1];  a[i-1] = a[i];  a[i] = t
+                t = a[i-1];a[i-1]=a[i];a[i] = t
                 endret = True
         if not endret: return 0
 
