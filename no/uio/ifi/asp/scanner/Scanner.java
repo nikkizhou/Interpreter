@@ -205,29 +205,42 @@ public class Scanner {
 
 			//handle string literal
 		} else if (Arrays.asList('"', '\'').contains(line.charAt(start))) {
-			
-			while (line.charAt(start)!= line.charAt(current-1) && current < line.length()-1) {
+			while (line.charAt(start) != line.charAt(current) && current < line.length() - 1) {
 				current++;
 			}
+			// print(str(day) + ". mars", y);
 			value = line.substring(start + 1, current);
+			System.out.println("value line 212: "+value);
 			// !!! if value contains \n and it's not in the end, throw error
 			kind = stringToken;
 		}
 		
 		addToken(kind, value);
 		return current-1;
-
-		// String element = line.substring(start, i);
-		// TokenKind kind = keywords.get(element);
-		// if (kind == null)
-		// kind = nameToken;
-		// addToken(kind);
 	}
 
 
 	public void addToken(TokenKind kind, String value) {
-		if (kind != null)
-			curLineTokens.add(new Token(kind, curLineNum(), value));
+		if (kind != null){
+			Token t = new Token(kind, curLineNum());
+			switch (kind) {
+				case nameToken:
+					t.name = value;
+					break;
+				case integerToken:
+					t.integerLit = Integer.parseInt(value);;
+					break;
+				case floatToken:
+					t.floatLit = Float.parseFloat(value);
+					break;
+				case stringToken:
+					t.stringLit = value;
+					break;
+				default:
+					break;
+			}
+			curLineTokens.add(t);
+		}
 	}
 
 	public int curLineNum() {
