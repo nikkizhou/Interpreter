@@ -1,3 +1,5 @@
+//Must be changed in part 2: er det for del2?
+// Token.java, er det greit å kombinere alle literal til en??
 package no.uio.ifi.asp.scanner;
 
 import java.io.*;
@@ -90,7 +92,7 @@ public class Scanner {
 					while (current < line.trim().length()) {
 						handleOprTokens(line.trim(), current);
 						current = handleNameLitTokens(line.trim(), current);
-						//System.out.println("current in for loop: " + current);
+						//System.out.println("current in while loop 96: " + current);
 						current++;
 					}
 
@@ -168,33 +170,52 @@ public class Scanner {
 		int start = current;
 		TokenKind kind = null;
 		String value = null;
+		current++;
 		
 		//handle name literal
 		if (isLetterAZ(line.charAt(start))) {
+			while (current < line.length() && (isLetterAZ(line.charAt(current))||isDigit(line.charAt(current)))) {
+				current++;
+			}
 
+			value = line.substring(start, current);
+			// if it's sd45sd$dd, how to fix???
+			for (TokenKind tk : EnumSet.range(andToken, yieldToken)) {
+				boolean isKeyWord = value != null && value.equals(tk.image);
+				if (!isKeyWord) {
+					kind = nameToken;
+				} else {
+					addToken(tk, null);
+					return current - 1;
+					// kind = tk;
+					// value = null;
+				}
+			}
 
 			// handle integer and float literal
 		} else if (isDigit(line.charAt(start))) {
-			current++;
 			while (current < line.length() && (isDigit(line.charAt(current)) || line.charAt(current) == '.')) {
 				current++;
 			}
 			value = line.substring(start, current);
-			System.out.println("value in 184: " + value);
+			// !!! if . is the last digit in value, throw error
+			// if its 34kdsad, throw error
 			kind = value.contains(".") ? floatToken : integerToken;
+
 
 			//handle string literal
 		} else if (Arrays.asList('"', '\'').contains(line.charAt(start))) {
-			current++;
-			while (line.charAt(start)!= line.charAt(current) && current < line.length() - 1) {
+			
+			while (line.charAt(start)!= line.charAt(current-1) && current < line.length()-1) {
 				current++;
 			}
 			value = line.substring(start + 1, current);
+			// !!! if value contains \n and it's not in the end, throw error
 			kind = stringToken;
 		}
 		
 		addToken(kind, value);
-		return current;
+		return current-1;
 
 		// String element = line.substring(start, i);
 		// TokenKind kind = keywords.get(element);
