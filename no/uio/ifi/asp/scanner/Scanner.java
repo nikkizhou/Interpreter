@@ -18,7 +18,7 @@ public class Scanner {
 		curFileName = fileName;
 		indents.push(0);
 
-		//try opening the file
+		// try opening the file
 		try {
 			sourceFile = new LineNumberReader(
 					new InputStreamReader(
@@ -55,7 +55,7 @@ public class Scanner {
 	public String removeComment(String line) {
 		int offset = line.indexOf("#");
 
-		if (offset!=-1) {
+		if (offset != -1) {
 			line = line.substring(0, offset);
 		}
 		return line;
@@ -87,14 +87,14 @@ public class Scanner {
 				sourceFile.close();
 				sourceFile = null;
 			} else {
-				Main.log.noteSourceLine(curLineNum(), removeComment(line));
+				Main.log.noteSourceLine(curLineNum(), line);
 			}
 		} catch (IOException e) {
 			sourceFile = null;
 			scannerError("Unspecified I/O error!");
 		}
 
-		//case 1: after reading the last line
+		// case 1: after reading the last line
 		if (line == null) {
 			for (int value : indents) {
 				if (value > 0)
@@ -102,12 +102,11 @@ public class Scanner {
 			}
 			curLineTokens.add(new Token(eofToken));
 
-		//case 2: before reading the last line
-		} else {
-			// 2-1: if the line is blank
-			boolean erBlank = line.trim().isEmpty() || line.charAt(0) == '#';
-			if (erBlank)
-				return;
+			// case 2: before reading the last line
+		} else if (line.trim().isEmpty() || line.charAt(0) == '#') {
+			return;
+
+		}else {
 			// 2-2: check indent and dedent
 			handelIndentToken(line);
 			// 2-3: handle other tokens
@@ -119,11 +118,11 @@ public class Scanner {
 			}
 			addToken(newLineToken, null);
 		}
-			
+
 		for (Token t : curLineTokens)
 			Main.log.noteToken(t);
 	}
-	
+
 	public void handleOprTokens(String line, int i) {
 		String curChar = "" + line.charAt(i);
 		String nextChar = i < line.length() - 1 ? "" + line.charAt(i + 1) : "";
@@ -166,7 +165,7 @@ public class Scanner {
 		String value = null;
 		current++;
 
-		//handle name literal
+		// handle name literal
 		if (isLetterAZ(line.charAt(start))) {
 			while (current < line.length() && (isLetterAZ(line.charAt(current)) || isDigit(line.charAt(current)))) {
 				current++;
@@ -190,12 +189,12 @@ public class Scanner {
 			}
 			value = line.substring(start, current);
 
-			boolean startWithZero = value.startsWith("0")&&value.length()>1;
-			if (value.endsWith(".")|| startWithZero)
+			boolean startWithZero = value.startsWith("0") && value.length() > 1;
+			if (value.endsWith(".") || startWithZero)
 				scannerError("\nInvalid number: " + value);
 			kind = value.contains(".") ? floatToken : integerToken;
 
-			//handle string literal
+			// handle string literal
 		} else if (Arrays.asList('"', '\'').contains(line.charAt(start))) {
 			while (current < line.length() - 1 && line.charAt(start) != line.charAt(current)) {
 				current++;
