@@ -5,7 +5,7 @@ import java.util.*;
 
 import no.uio.ifi.asp.main.*;
 import static no.uio.ifi.asp.scanner.TokenKind.*;
-import static no.uio.ifi.asp.scanner.TokenKind.*;
+import java.util.Arrays;
 
 public class Scanner {
 	private LineNumberReader sourceFile = null;
@@ -52,54 +52,13 @@ public class Scanner {
 			curLineTokens.remove(0);
 	}
 
-	// devide next line into tokens and add dem to curLineTokens
-	private void readNextLine() {
-		curLineTokens.clear();
+	public String removeComment(String line) {
+		int offset = line.indexOf("#");
 
-		String line = null;
-		try {
-			if (sourceFile != null) {
-				line = sourceFile.readLine();
-				//after last line, add corresponding dedentToken to curLineTokens based on indents
-				if (line == null) {
-					for (int value : indents) {
-						if (value > 0)
-							curLineTokens.add(new Token(dedentToken));
-					}
-					curLineTokens.add(new Token(eofToken));
-					sourceFile.close();
-					sourceFile = null;
-				
-				} else {
-					Main.log.noteSourceLine(curLineNum(), line);
-
-					//if the line is blank
-					boolean erBlank = line.trim().isEmpty() || line.charAt(0) == '#';
-					if (erBlank)
-						return;
-
-					//if the line includes indent or dedent
-					handelIndentToken(line);
-
-					// handle other tokens
-					int current = 0;
-					while (current < line.trim().length()) {
-						handleOprTokens(line.trim(), current);
-						current = handleNameLitTokens(line.trim(), current);
-						current++;
-					}
-
-					addToken(newLineToken, null);
-				}
-
-				for (Token t : curLineTokens)
-					Main.log.noteToken(t);
-			}
-
-		} catch (IOException e) {
-			sourceFile = null;
-			scannerError("Unspecified I/O error!");
+		if (offset!=-1) {
+			line = line.substring(0, offset);
 		}
+		return line;
 	}
 
 	public void handelIndentToken(String line) {
@@ -117,6 +76,54 @@ public class Scanner {
 			scannerError("\nExpected indents number: " + indents.peek() + ", but got: " + n);
 	}
 
+	private void readNextLine() {
+		curLineTokens.clear();
+
+		// Read the next line:
+		String line = null;
+		try {
+			line = sourceFile.readLine();
+			if (line == null) {
+				sourceFile.close();
+				sourceFile = null;
+			} else {
+				Main.log.noteSourceLine(curLineNum(), removeComment(line));
+			}
+		} catch (IOException e) {
+			sourceFile = null;
+			scannerError("Unspecified I/O error!");
+		}
+
+		//case 1: after reading the last line
+		if (line == null) {
+			for (int value : indents) {
+				if (value > 0)
+					curLineTokens.add(new Token(dedentToken));
+			}
+			curLineTokens.add(new Token(eofToken));
+
+		//case 2: before reading the last line
+		} else {
+			// 2-1: if the line is blank
+			boolean erBlank = line.trim().isEmpty() || line.charAt(0) == '#';
+			if (erBlank)
+				return;
+			// 2-2: check indent and dedent
+			handelIndentToken(line);
+			// 2-3: handle other tokens
+			int current = 0;
+			while (current < removeComment(line).trim().length()) {
+				handleOprTokens(line.trim(), current);
+				current = handleNameLitTokens(line.trim(), current);
+				current++;
+			}
+			addToken(newLineToken, null);
+		}
+			
+		for (Token t : curLineTokens)
+			Main.log.noteToken(t);
+	}
+	
 	public void handleOprTokens(String line, int i) {
 		String curChar = "" + line.charAt(i);
 		String nextChar = i < line.length() - 1 ? "" + line.charAt(i + 1) : "";
@@ -158,10 +165,10 @@ public class Scanner {
 		TokenKind kind = null;
 		String value = null;
 		current++;
-		
+
 		//handle name literal
 		if (isLetterAZ(line.charAt(start))) {
-			while (current < line.length() && (isLetterAZ(line.charAt(current))||isDigit(line.charAt(current)))) {
+			while (current < line.length() && (isLetterAZ(line.charAt(current)) || isDigit(line.charAt(current)))) {
 				current++;
 			}
 
@@ -182,13 +189,15 @@ public class Scanner {
 				current++;
 			}
 			value = line.substring(start, current);
-			if (value.endsWith("."))
-				scannerError("\nInvalid float: "+value);
+
+			boolean startWithZero = value.startsWith("0")&&value.length()>1;
+			if (value.endsWith(".")|| startWithZero)
+				scannerError("\nInvalid number: " + value);
 			kind = value.contains(".") ? floatToken : integerToken;
 
 			//handle string literal
 		} else if (Arrays.asList('"', '\'').contains(line.charAt(start))) {
-			while (current < line.length() - 1&&line.charAt(start) != line.charAt(current) ) {
+			while (current < line.length() - 1 && line.charAt(start) != line.charAt(current)) {
 				current++;
 			}
 			if (line.charAt(current) != line.charAt(start)) {
@@ -198,23 +207,23 @@ public class Scanner {
 			kind = stringToken;
 			current++;
 
-		} else if (Arrays.asList('.', '$','£','@').contains(line.charAt(start))) {
-			scannerError("\nThe symbol "+line.charAt(start)+" here is not valid");
+		} else if (Arrays.asList('.', '$', '£', '@').contains(line.charAt(start))) {
+			scannerError("\nThe symbol " + line.charAt(start) + " here is not valid");
 		}
-		
+
 		addToken(kind, value);
-		return current-1;
+		return current - 1;
 	}
 
 	public void addToken(TokenKind kind, String value) {
-		if (kind != null){
+		if (kind != null) {
 			Token t = new Token(kind, curLineNum());
 			switch (kind) {
 				case nameToken:
 					t.name = value;
 					break;
 				case integerToken:
-					t.integerLit = Integer.parseInt(value);;
+					t.integerLit = Integer.parseInt(value);
 					break;
 				case floatToken:
 					t.floatLit = Float.parseFloat(value);
@@ -240,7 +249,6 @@ public class Scanner {
 		return indent;
 	}
 
-	
 	private String expandLeadingTabs(String line) {
 		int n = 0;
 		StringBuilder linjeBuf = new StringBuilder(line);
