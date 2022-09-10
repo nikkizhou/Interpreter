@@ -1,35 +1,22 @@
-   1: # Dette programmet starter med en del rar men lovlig indentering
-   2: # før det til sist viser en ulovlig indentering.
+   1: 
+   2: 
    3: 
    4: if True:
 Scanner: if token on line 4
 Scanner: True token on line 4
 Scanner: : token on line 4
 Scanner: NEWLINE token on line 4
-   5:  if False:  # Indentering (kort men helt lovlig)
+   5:  if False:  
 Scanner: INDENT token on line 5
 Scanner: if token on line 5
 Scanner: False token on line 5
 Scanner: : token on line 5
-Scanner: name token on line 5: Indentering
-Scanner: ( token on line 5
-Scanner: name token on line 5: kort
-Scanner: name token on line 5: men
-Scanner: name token on line 5: helt
-Scanner: name token on line 5: lovlig
-Scanner: ) token on line 5
 Scanner: NEWLINE token on line 5
-   6:                               if 1: # Kjempeindentering (uleselig men OK)
+   6:                               if 1: 
 Scanner: INDENT token on line 6
 Scanner: if token on line 6
 Scanner: integer literal token on line 6: 1
 Scanner: : token on line 6
-Scanner: name token on line 6: Kjempeindentering
-Scanner: ( token on line 6
-Scanner: name token on line 6: uleselig
-Scanner: name token on line 6: men
-Scanner: name token on line 6: OK
-Scanner: ) token on line 6
 Scanner: NEWLINE token on line 6
    7:                                   print("Ja")
 Scanner: INDENT token on line 7
@@ -38,6 +25,6 @@ Scanner: ( token on line 7
 Scanner: string literal token on line 7: "Ja"
 Scanner: ) token on line 7
 Scanner: NEWLINE token on line 7
-   8:     a = 4   # Gal indentering (ikke brukt før)
+   8:     a = 4   
 Asp scanner error on line 8: 
 Expected indents number: 1, but got: 4

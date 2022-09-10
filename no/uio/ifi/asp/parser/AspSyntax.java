@@ -5,6 +5,7 @@ package no.uio.ifi.asp.parser;
 import no.uio.ifi.asp.main.*;
 import no.uio.ifi.asp.runtime.*;
 import no.uio.ifi.asp.scanner.*;
+import java.util.Arrays;
 
 public abstract class AspSyntax {
     public int lineNum;
@@ -13,10 +14,8 @@ public abstract class AspSyntax {
 	lineNum = n;
     }
 
-
     abstract void prettyPrint();
     abstract RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue;
-
 
     static void parserError(String message, int lineNum) {
 	String m = "Asp parser error";
@@ -41,8 +40,17 @@ public abstract class AspSyntax {
 
 
     public static void skip(Scanner s, TokenKind tk) {
-	test(s, tk);
-	s.readNextToken();
+        test(s, tk);
+        s.readNextToken();
+    }
+
+    public static void skip(Scanner s, String[] tkArr) {
+        TokenKind k = s.curToken().kind;
+        if (!Arrays.asList(tkArr).contains(k.image)) {
+            parserError("Expected it to be in" + Arrays.toString(tkArr) + " but found " +
+                    s.curToken().kind + "!", s.curLineNum());
+        }
+        s.readNextToken();
     }
 
 
