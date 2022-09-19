@@ -4,7 +4,6 @@
 Scanner: name token on line 3: v
 Scanner: = token on line 3
 Scanner: float literal token on line 3: 2.0
-Scanner: name token on line 3: OK
 Scanner: NEWLINE token on line 3
    4: v = v + .5  # Ingenting foran desimalpunktum
 Asp scanner error on line 4: 

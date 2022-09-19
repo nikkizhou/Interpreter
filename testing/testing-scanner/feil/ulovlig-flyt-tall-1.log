@@ -2,4 +2,4 @@
    2: 
    3: v = 2.   # Ingenting etter desimalpunktum
 Asp scanner error on line 3: 
-Invalid float: 2.
+Invalid number: 2.

@@ -100,7 +100,7 @@ public enum TokenKind {
     newLineToken("NEWLINE"),
     eofToken("E-o-f");
 
-    String image;
+    public String image;
 
     TokenKind(String s) {
 	image = s;

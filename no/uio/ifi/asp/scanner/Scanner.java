@@ -94,7 +94,7 @@ public class Scanner {
 			scannerError("Unspecified I/O error!");
 		}
 
-		// case 1: after reading the last line
+		// case 1: finished reading all lines
 		if (line == null) {
 			for (int value : indents) {
 				if (value > 0)
@@ -102,14 +102,15 @@ public class Scanner {
 			}
 			curLineTokens.add(new Token(eofToken));
 
-			// case 2: before reading the last line
+			// case 2: the line is empty or comment
 		} else if (line.trim().isEmpty() || line.charAt(0) == '#') {
 			return;
 
+			// case 3: the line is valid
 		}else {
-			// 2-2: check indent and dedent
+			// 3-1: check indent and dedent tokens
 			handelIndentToken(line);
-			// 2-3: handle other tokens
+			// 3-2: handle other tokens
 			int current = 0;
 			while (current < removeComment(line).trim().length()) {
 				handleOprTokens(line.trim(), current);
@@ -272,28 +273,24 @@ public class Scanner {
 		return '0' <= c && c <= '9';
 	}
 
-	public boolean isCompOpr(String s) {
+	public boolean isCompOpr() {
 		TokenKind k = curToken().kind;
-		// -- Must be changed in part 2:
-		return false;
+		return Arrays.asList("<", "<=",">",">=","!=","==").contains(k.image);
 	}
 
 	public boolean isFactorPrefix() {
 		TokenKind k = curToken().kind;
-		// -- Must be changed in part 2:
-		return false;
+		return Arrays.asList("+", "-").contains(k.image);
 	}
 
 	public boolean isFactorOpr() {
 		TokenKind k = curToken().kind;
-		// -- Must be changed in part 2:
-		return false;
+		return Arrays.asList("*", "/", "//", "%").contains(k.image);
 	}
 
 	public boolean isTermOpr() {
 		TokenKind k = curToken().kind;
-		// -- Must be changed in part 2:
-		return false;
+		return Arrays.asList("+", "-").contains(k.image);
 	}
 
 	public boolean anyEqualToken() {

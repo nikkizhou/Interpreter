@@ -4,7 +4,6 @@
 Scanner: name token on line 3: s
 Scanner: = token on line 3
 Scanner: string literal token on line 3: "The price is $2.50"
-Scanner: name token on line 3: OK
 Scanner: NEWLINE token on line 3
    4: a$b = 1234567890           # 'Illegal character'
 Asp scanner error on line 4: 
