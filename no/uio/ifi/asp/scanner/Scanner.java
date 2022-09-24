@@ -166,7 +166,7 @@ public class Scanner {
 		String value = null;
 		current++;
 
-		// handle name literal
+		// case1: handle name literal
 		if (isLetterAZ(line.charAt(start))) {
 			while (current < line.length() && (isLetterAZ(line.charAt(current)) || isDigit(line.charAt(current)))) {
 				current++;
@@ -183,7 +183,7 @@ public class Scanner {
 				}
 			}
 
-			// handle integer and float literal
+			//case2: handle integer and float literal
 		} else if (isDigit(line.charAt(start))) {
 			while (current < line.length() && (isDigit(line.charAt(current)) || line.charAt(current) == '.')) {
 				current++;
@@ -195,7 +195,8 @@ public class Scanner {
 				scannerError("\nInvalid number: " + value);
 			kind = value.contains(".") ? floatToken : integerToken;
 
-			// handle string literal
+
+			//case3: handle string literal
 		} else if (Arrays.asList('"', '\'').contains(line.charAt(start))) {
 			while (current < line.length() - 1 && line.charAt(start) != line.charAt(current)) {
 				current++;

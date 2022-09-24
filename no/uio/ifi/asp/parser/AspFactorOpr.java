@@ -28,7 +28,7 @@ public class AspFactorOpr extends AspSyntax {
 
     @Override
     void prettyPrint() {
-        prettyWrite(" " + opr.toString() + " ");
+        prettyWrite(opr.toString());
     }
 
     @Override

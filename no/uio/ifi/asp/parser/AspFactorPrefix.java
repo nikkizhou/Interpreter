@@ -21,7 +21,7 @@ public class AspFactorPrefix extends AspSyntax{
   
   @Override
   void prettyPrint() {
-    prettyWrite(" " + prefix.toString() + " ");
+    prettyWrite(prefix.toString());
   }
 
   @Override

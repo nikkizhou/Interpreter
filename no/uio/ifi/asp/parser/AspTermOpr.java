@@ -13,14 +13,14 @@ public class AspTermOpr extends AspSyntax {
     enterParser("term opr");
     AspTermOpr ato = new AspTermOpr(s.curLineNum());
     ato.opr = s.curToken().kind;
-    if (s.isFactorOpr())  skip(s, ato.opr);
+    if (s.isTermOpr())  skip(s, ato.opr);
     leaveParser("term opr");
     return ato;
   }
 
   @Override
   void prettyPrint() {
-    System.out.println(" " + opr.toString() + " ");
+    prettyWrite(opr.toString() + "");
   }
   
   @Override

@@ -22,7 +22,7 @@ public class AspFloatLiteral extends AspAtom {
 
   @Override
   void prettyPrint() {
-    prettyWrite(" " + flt + " ");
+    prettyWrite(flt + "");
   }
 
   @Override
