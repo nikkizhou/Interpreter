@@ -18,13 +18,15 @@ public class AspArguments extends AspPrimarySuffix {
     enterParser("arguments");
     AspArguments aa = new AspArguments(s.curLineNum());
     skip(s, leftParToken);
+    
     while (s.curToken().kind != rightParToken) {
       aa.exprs.add(AspExpr.parse(s));
       if (s.curToken().kind != commaToken)
         break;
       skip(s, commaToken);
+      if (s.curToken().kind == rightParToken) 
+        parserError("Can't end with comma in argument", s.curLineNum());
     }
-
     skip(s, rightParToken);
     leaveParser("arguments");
     return aa;

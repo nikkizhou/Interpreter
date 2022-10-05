@@ -21,6 +21,7 @@ public class AspSuite extends AspSyntax {
     if (s.curToken().kind == newLineToken) {
       skip(s, newLineToken);
       skip(s, indentToken);
+      aSuite.aStmtList.add(AspStmt.parse(s));
       while (s.curToken().kind != dedentToken) {
         aSuite.aStmtList.add(AspStmt.parse(s));
       }

@@ -6,7 +6,7 @@ import no.uio.ifi.asp.scanner.*;
 import static no.uio.ifi.asp.scanner.TokenKind.*;
 
 public class AspSmallStmtList extends AspStmt {
-  ArrayList<AspSmallStmt> smallStmtList = new ArrayList<>();
+  ArrayList<AspSmallStmt> smallStmts = new ArrayList<>();
   Boolean lastSemiCol = false;
 
   public AspSmallStmtList(int n) {
@@ -17,15 +17,12 @@ public class AspSmallStmtList extends AspStmt {
     enterParser("small stmt list");
 
     AspSmallStmtList assl = new AspSmallStmtList(s.curLineNum());
-    assl.smallStmtList.add(AspSmallStmt.parse(s));
-
+    assl.smallStmts.add(AspSmallStmt.parse(s));
     while (s.curToken().kind != newLineToken) {
       skip(s, semicolonToken);
-      if (s.curToken().kind == newLineToken) {
+      if (s.curToken().kind == newLineToken) 
         break;
-      } else {
-        assl.smallStmtList.add(AspSmallStmt.parse(s));
-      }
+      assl.smallStmts.add(AspSmallStmt.parse(s));
     }
     skip(s, newLineToken);
 
@@ -35,13 +32,11 @@ public class AspSmallStmtList extends AspStmt {
 
   @Override
   public void prettyPrint() {
-    int i = 0;
-    smallStmtList.get(i).prettyPrint();
-    i++;
-
-    for (; i < smallStmtList.size(); i++) {
+    smallStmts.get(0).prettyPrint();
+    
+    for (int i=1; i < smallStmts.size(); i++) {
       prettyWrite("; ");
-      smallStmtList.get(i).prettyPrint();
+      smallStmts.get(i).prettyPrint();
     }
     prettyWriteLn();
   }

@@ -37,19 +37,4 @@
                                 </not test>
                               </and test>
                             </expr>
-                          </arguments>
-                        </primary suffix>
-                      </primary>
-                    </factor>
-                  </term>
-                </comparison>
-              </not test>
-            </and test>
-          </expr>
-        </expr stmt>
-      </small stmt>
-    </small stmt list>
-  </stmt>
-</program>
-
-print("Hei")
+Asp parser error on line 3: Can't end with comma in argument

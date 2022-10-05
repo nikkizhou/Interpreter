@@ -90,37 +90,6 @@
                                 </not test>
                               </and test>
                             </expr>
-                          </list display>
-                        </atom>
-                      </primary>
-                    </factor>
-                  </term>
-                </comparison>
-              </not test>
-            </and test>
-          </expr>
-        </assignment>
-      </small stmt>
-    </small stmt list>
-  </stmt>
-   5: print(a)
-  <stmt>
-    <small stmt list>
-      <small stmt>
-        <expr stmt>
-          <expr>
-            <and test>
-              <not test>
-                <comparison>
-                  <term>
-                    <factor>
-                      <primary>
-                        <atom>
-                          <name>
-                          </name>
-                        </atom>
-                        <primary suffix>
-                          <arguments>
                             <expr>
                               <and test>
                                 <not test>
@@ -129,30 +98,4 @@
                                       <factor>
                                         <primary>
                                           <atom>
-                                            <name>
-                                            </name>
-                                          </atom>
-                                        </primary>
-                                      </factor>
-                                    </term>
-                                  </comparison>
-                                </not test>
-                              </and test>
-                            </expr>
-                          </arguments>
-                        </primary suffix>
-                      </primary>
-                    </factor>
-                  </term>
-                </comparison>
-              </not test>
-            </and test>
-          </expr>
-        </expr stmt>
-      </small stmt>
-    </small stmt list>
-  </stmt>
-</program>
-
-a=[4, 3, 0, 0]
-print(a)
+Asp parser error on line 4: Expected an expression atom but found a ]!

@@ -9,5 +9,37 @@
         </name>
         <suite>
    4: 
-   5: def g():
-Asp parser error on line 5: Expected INDENT but found def!
+   5:     def g():
+          <stmt>
+            <compound stmt>
+              <func def>
+                <name>
+                </name>
+                <suite>
+   6:         return f()
+                  <stmt>
+                    <small stmt list>
+                      <small stmt>
+                        <return stmt>
+                          <expr>
+                            <and test>
+                              <not test>
+                                <comparison>
+                                  <term>
+                                    <factor>
+                                      <primary>
+                                        <atom>
+                                          <name>
+                                          </name>
+                                        </atom>
+                                        <primary suffix>
+                                          <arguments>
+                                            <expr>
+                                              <and test>
+                                                <not test>
+                                                  <comparison>
+                                                    <term>
+                                                      <factor>
+                                                        <primary>
+                                                          <atom>
+Asp parser error on line 6: Expected an expression atom but found a )!
