@@ -17,8 +17,10 @@
                   <term>
                     <factor>
                       <primary>
-                        <integer literal>
-                        </integer literal>
+                        <atom>
+                          <integer literal>
+                          </integer literal>
+                        </atom>
                       </primary>
                     </factor>
                   </term>
@@ -44,8 +46,10 @@
                   <term>
                     <factor>
                       <primary>
-                        <integer literal>
-                        </integer literal>
+                        <atom>
+                          <integer literal>
+                          </integer literal>
+                        </atom>
                       </primary>
                     </factor>
                   </term>
@@ -73,8 +77,10 @@
                       <factor prefix>
                       </factor prefix>
                       <primary>
-                        <name>
-                        </name>
+                        <atom>
+                          <name>
+                          </name>
+                        </atom>
                       </primary>
                     </factor>
                     <term opr>
@@ -83,8 +89,10 @@
                       <factor prefix>
                       </factor prefix>
                       <primary>
-                        <name>
-                        </name>
+                        <atom>
+                          <name>
+                          </name>
+                        </atom>
                       </primary>
                     </factor>
                     <term opr>
@@ -93,8 +101,10 @@
                       <factor prefix>
                       </factor prefix>
                       <primary>
-                        <integer literal>
-                        </integer literal>
+                        <atom>
+                          <integer literal>
+                          </integer literal>
+                        </atom>
                       </primary>
                     </factor>
                   </term>
@@ -118,8 +128,10 @@
                   <term>
                     <factor>
                       <primary>
-                        <name>
-                        </name>
+                        <atom>
+                          <name>
+                          </name>
+                        </atom>
                         <primary suffix>
                           <arguments>
                             <expr>
@@ -129,8 +141,10 @@
                                     <term>
                                       <factor>
                                         <primary>
-                                          <name>
-                                          </name>
+                                          <atom>
+                                            <name>
+                                            </name>
+                                          </atom>
                                         </primary>
                                       </factor>
                                     </term>
@@ -165,78 +179,90 @@
                   <term>
                     <factor>
                       <primary>
-                        <inner expr>
-                          <expr>
-                            <and test>
-                              <not test>
-                                <comparison>
-                                  <term>
-                                    <factor>
-                                      <factor prefix>
-                                      </factor prefix>
-                                      <primary>
-                                        <name>
-                                        </name>
-                                      </primary>
-                                    </factor>
-                                  </term>
-                                </comparison>
-                              </not test>
-                            </and test>
-                          </expr>
-                        </inner expr>
+                        <atom>
+                          <inner expr>
+                            <expr>
+                              <and test>
+                                <not test>
+                                  <comparison>
+                                    <term>
+                                      <factor>
+                                        <factor prefix>
+                                        </factor prefix>
+                                        <primary>
+                                          <atom>
+                                            <name>
+                                            </name>
+                                          </atom>
+                                        </primary>
+                                      </factor>
+                                    </term>
+                                  </comparison>
+                                </not test>
+                              </and test>
+                            </expr>
+                          </inner expr>
+                        </atom>
                       </primary>
                     </factor>
                     <term opr>
                     </term opr>
                     <factor>
                       <primary>
-                        <inner expr>
-                          <expr>
-                            <and test>
-                              <not test>
-                                <comparison>
-                                  <term>
-                                    <factor>
-                                      <factor prefix>
-                                      </factor prefix>
-                                      <primary>
-                                        <name>
-                                        </name>
-                                      </primary>
-                                    </factor>
-                                  </term>
-                                </comparison>
-                              </not test>
-                            </and test>
-                          </expr>
-                        </inner expr>
+                        <atom>
+                          <inner expr>
+                            <expr>
+                              <and test>
+                                <not test>
+                                  <comparison>
+                                    <term>
+                                      <factor>
+                                        <factor prefix>
+                                        </factor prefix>
+                                        <primary>
+                                          <atom>
+                                            <name>
+                                            </name>
+                                          </atom>
+                                        </primary>
+                                      </factor>
+                                    </term>
+                                  </comparison>
+                                </not test>
+                              </and test>
+                            </expr>
+                          </inner expr>
+                        </atom>
                       </primary>
                     </factor>
                     <term opr>
                     </term opr>
                     <factor>
                       <primary>
-                        <inner expr>
-                          <expr>
-                            <and test>
-                              <not test>
-                                <comparison>
-                                  <term>
-                                    <factor>
-                                      <factor prefix>
-                                      </factor prefix>
-                                      <primary>
-                                        <integer literal>
-                                        </integer literal>
-                                      </primary>
-                                    </factor>
-                                  </term>
-                                </comparison>
-                              </not test>
-                            </and test>
-                          </expr>
-                        </inner expr>
+                        <atom>
+                          <inner expr>
+                            <expr>
+                              <and test>
+                                <not test>
+                                  <comparison>
+                                    <term>
+                                      <factor>
+                                        <factor prefix>
+                                        </factor prefix>
+                                        <primary>
+                                          <atom>
+                                            <integer literal>
+                                            </integer literal>
+                                          </atom>
+                                        </primary>
+                                      </factor>
+                                    </term>
+                                  </comparison>
+                                </not test>
+                              </and test>
+                            </expr>
+                          </inner expr>
+                        </atom>
                       </primary>
                     </factor>
                   </term>
@@ -260,8 +286,10 @@
                   <term>
                     <factor>
                       <primary>
-                        <name>
-                        </name>
+                        <atom>
+                          <name>
+                          </name>
+                        </atom>
                         <primary suffix>
                           <arguments>
                             <expr>
@@ -271,8 +299,10 @@
                                     <term>
                                       <factor>
                                         <primary>
-                                          <name>
-                                          </name>
+                                          <atom>
+                                            <name>
+                                            </name>
+                                          </atom>
                                         </primary>
                                       </factor>
                                     </term>
@@ -295,9 +325,9 @@
   </stmt>
 </program>
 
-a=1; b=2; v=-a--b--1; print(v); w=(-a)-(-b)-(-1); print(w)
-a=1; b=2; v=-a--b--1; print(v); w=(-a)-(-b)-(-1); print(w)
-a=1; b=2; v=-a--b--1; print(v); w=(-a)-(-b)-(-1); print(w)
-a=1; b=2; v=-a--b--1; print(v); w=(-a)-(-b)-(-1); print(w)
-a=1; b=2; v=-a--b--1; print(v); w=(-a)-(-b)-(-1); print(w)
-a=1; b=2; v=-a--b--1; print(v); w=(-a)-(-b)-(-1); print(w)
+a=1
+b=2
+v=-a--b--1
+print(v)
+w=(-a)-(-b)-(-1)
+print(w)

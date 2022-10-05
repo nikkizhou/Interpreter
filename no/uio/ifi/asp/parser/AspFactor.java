@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import no.uio.ifi.asp.runtime.*;
 import no.uio.ifi.asp.scanner.*;
 
-
 class AspFactor extends AspSyntax {
   ArrayList<AspFactorOpr> factorOprs = new ArrayList<>();
   ArrayList<AspFactorPrefix> factorPrefixes = new ArrayList<>();

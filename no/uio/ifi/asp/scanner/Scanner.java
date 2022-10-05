@@ -9,13 +9,11 @@ import java.util.Arrays;
 
 public class Scanner {
 	private LineNumberReader sourceFile = null;
-	private String curFileName;
 	private ArrayList<Token> curLineTokens = new ArrayList<>();
 	private Stack<Integer> indents = new Stack<>();
 	private final int TABDIST = 4;
 
 	public Scanner(String fileName) {
-		curFileName = fileName;
 		indents.push(0);
 
 		// try opening the file
@@ -276,7 +274,7 @@ public class Scanner {
 
 	public boolean isCompOpr() {
 		TokenKind k = curToken().kind;
-		return Arrays.asList("<", "<=",">",">=","!=","==").contains(k.image);
+		return Arrays.asList("<", "<=", ">", ">=", "!=", "==").contains(k.image);
 	}
 
 	public boolean isFactorPrefix() {

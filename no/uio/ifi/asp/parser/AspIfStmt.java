@@ -7,9 +7,9 @@ import static no.uio.ifi.asp.scanner.TokenKind.*;
 import java.util.ArrayList;
 
 public class AspIfStmt extends AspCompoundStmt {
-  static ArrayList<AspExpr> exprs = new ArrayList<>();
+  ArrayList<AspExpr> exprs = new ArrayList<>();
   ArrayList<AspSuite> suites = new ArrayList<>();
-  static boolean elseExists = false;
+  boolean elseExists = false;
    
   AspIfStmt(int n) {
     super(n);
@@ -20,7 +20,7 @@ public class AspIfStmt extends AspCompoundStmt {
     AspIfStmt ais = new AspIfStmt(s.curLineNum());
     skip(s, ifToken);
     while (true) {
-      exprs.add(AspExpr.parse(s));
+      ais.exprs.add(AspExpr.parse(s));
       skip(s, colonToken);
       ais.suites.add(AspSuite.parse(s));
       if (s.curToken().kind != elifToken)
@@ -29,7 +29,7 @@ public class AspIfStmt extends AspCompoundStmt {
     }
     
     if (s.curToken().kind == elseToken) {
-      elseExists = true;
+      ais.elseExists = true;
       skip(s, elseToken);
       skip(s, colonToken);
       ais.suites.add(AspSuite.parse(s));

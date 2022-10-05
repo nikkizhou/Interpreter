@@ -6,48 +6,60 @@ import no.uio.ifi.asp.scanner.*;
 import static no.uio.ifi.asp.scanner.TokenKind.*;
 
 public class AspSuite extends AspSyntax {
-  static ArrayList<AspStmt> stmts = new ArrayList<>();
-  static AspSmallStmtList smallSL=null;
+  ArrayList<AspStmt> aStmtList = new ArrayList<>();
+  AspSmallStmtList assl;
 
-  AspSuite(int n) {
+  public AspSuite(int n) {
     super(n);
   }
 
   public static AspSuite parse(Scanner s) {
     enterParser("suite");
-    AspSuite as = new AspSuite(s.curLineNum());
-    
-    if (s.curToken().kind !=newLineToken) {
-      smallSL = AspSmallStmtList.parse(s);
-    } else {
+
+    AspSuite aSuite = new AspSuite(s.curLineNum());
+
+    if (s.curToken().kind == newLineToken) {
       skip(s, newLineToken);
       skip(s, indentToken);
-      stmts.add(AspStmt.parse(s));
       while (s.curToken().kind != dedentToken) {
-        stmts.add(AspStmt.parse(s));
+        aSuite.aStmtList.add(AspStmt.parse(s));
       }
       skip(s, dedentToken);
+    } else {
+      aSuite.assl = AspSmallStmtList.parse(s);
     }
-
     leaveParser("suite");
-    return as;
+    return aSuite;
   }
 
   @Override
   public void prettyPrint() {
-    if (smallSL != null) {
-      smallSL.prettyPrint();
+
+    if (aStmtList.isEmpty()) {
+      prettyWriteLn();
+      assl.prettyPrint();
     } else {
       prettyWriteLn();
       prettyIndent();
-      for (AspStmt as : stmts)  as.prettyPrint();
+
+      for (AspStmt as : aStmtList) {
+        as.prettyPrint();
+      }
       prettyDedent();
     }
   }
 
   @Override
   public RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
-    // -- Must be changed in part 4:
-    return null;
+    RuntimeValue v = null;
+
+    if (assl != null) {
+      v = assl.eval(curScope);
+    } else {
+      for (AspStmt as : aStmtList) {
+        v = as.eval(curScope);
+      }
+    }
+    return v;
   }
 }
