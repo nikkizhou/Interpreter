@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import no.uio.ifi.asp.runtime.*;
 import no.uio.ifi.asp.scanner.*;
 
+
 class AspComparison extends AspSyntax {
   ArrayList<AspTerm> terms = new ArrayList<>();
   ArrayList<AspCompOpr> compOprs = new ArrayList<>();

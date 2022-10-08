@@ -2,6 +2,8 @@ package no.uio.ifi.asp.parser;
 
 import no.uio.ifi.asp.runtime.*;
 import no.uio.ifi.asp.scanner.*;
+
+
 import static no.uio.ifi.asp.scanner.TokenKind.*;
 import java.util.ArrayList;
 
@@ -16,13 +18,15 @@ public class AspArguments extends AspPrimarySuffix {
     enterParser("arguments");
     AspArguments aa = new AspArguments(s.curLineNum());
     skip(s, leftParToken);
+    
     while (s.curToken().kind != rightParToken) {
       aa.exprs.add(AspExpr.parse(s));
       if (s.curToken().kind != commaToken)
         break;
       skip(s, commaToken);
+      if (s.curToken().kind == rightParToken) 
+        parserError("Can't end with comma in argument", s.curLineNum());
     }
-
     skip(s, rightParToken);
     leaveParser("arguments");
     return aa;
@@ -33,10 +37,9 @@ public class AspArguments extends AspPrimarySuffix {
     int nPrinted = 0;
     prettyWrite("(");
     for (AspExpr ae : exprs) {
-      if (nPrinted > 0) 
+      if (nPrinted++ > 0) 
         prettyWrite(", ");
       ae.prettyPrint();
-      ++nPrinted;
     }
     prettyWrite(")");
   }

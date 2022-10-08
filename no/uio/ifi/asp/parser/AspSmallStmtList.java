@@ -1,54 +1,48 @@
 package no.uio.ifi.asp.parser;
 
-import no.uio.ifi.asp.scanner.Scanner;
-import static no.uio.ifi.asp.scanner.TokenKind.*;
-import no.uio.ifi.asp.runtime.*;
 import java.util.ArrayList;
+import no.uio.ifi.asp.runtime.*;
+import no.uio.ifi.asp.scanner.*;
+import static no.uio.ifi.asp.scanner.TokenKind.*;
 
-
-public class AspSmallStmtList extends AspStmt{
-  static ArrayList<AspSmallStmt> smallStmts = new ArrayList<>();
-  static boolean lastIsSemi = true;
+public class AspSmallStmtList extends AspStmt {
+  ArrayList<AspSmallStmt> smallStmts = new ArrayList<>();
+  Boolean lastSemiCol = false;
 
   public AspSmallStmtList(int n) {
     super(n);
   }
 
-  //??? er det riktig?
-  public static AspSmallStmtList parse(Scanner s){
+  public static AspSmallStmtList parse(Scanner s) {
     enterParser("small stmt list");
-    AspSmallStmtList assl = new AspSmallStmtList(s.curLineNum());
 
-    while (s.curToken().kind!=newLineToken) {
-      smallStmts.add(AspSmallStmt.parse(s));
-      
-      if (s.curToken().kind!=semicolonToken) {
-        lastIsSemi =false;
+    AspSmallStmtList assl = new AspSmallStmtList(s.curLineNum());
+    while (s.curToken().kind != newLineToken) {
+      assl.smallStmts.add(AspSmallStmt.parse(s));
+      if (s.curToken().kind != semicolonToken)
         break;
-      }
       skip(s, semicolonToken);
-      
+      if (s.curToken().kind == newLineToken) assl.lastSemiCol = true;
     }
     skip(s, newLineToken);
+
     leaveParser("small stmt list");
     return assl;
   }
 
   @Override
-  void prettyPrint() {
-    int nPrinted = 0;
-    for (AspSmallStmt ass : smallStmts) {
-      if (nPrinted > 0) prettyWrite("; ");
-      ass.prettyPrint();
-      ++nPrinted;
+  public void prettyPrint() {
+    smallStmts.get(0).prettyPrint();
+    for (int i = 1; i < smallStmts.size(); i++) {
+      prettyWrite("; ");
+      smallStmts.get(i).prettyPrint();
     }
-    if(lastIsSemi) prettyWrite("; ");
+    if (lastSemiCol) prettyWrite("; ");
     prettyWriteLn();
   }
 
   @Override
-  RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
+  public RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
     return null;
   }
-  
 }

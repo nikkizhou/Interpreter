@@ -1,6 +1,7 @@
 package no.uio.ifi.asp.parser;
 
 import no.uio.ifi.asp.scanner.TokenKind;
+
 import no.uio.ifi.asp.scanner.*;
 import no.uio.ifi.asp.runtime.*;
 
@@ -19,13 +20,7 @@ public class AspCompOpr extends AspSyntax{
     enterParser("comp opr");
     AspCompOpr aco = new AspCompOpr(s.curLineNum());
     aco.opr = s.curToken().kind;
-    if (s.isCompOpr())
-      skip(s, aco.opr);
-    else{
-      String[] compOprArr = {"<", "<=", ">", ">=", "!=", "=="};
-      test(s, compOprArr);
-    }
-    
+    skip(s, aco.opr);
     leaveParser("comp opr");
     return aco;
   }

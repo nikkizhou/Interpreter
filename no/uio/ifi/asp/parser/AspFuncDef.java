@@ -1,16 +1,16 @@
 package no.uio.ifi.asp.parser;
-
+import no.uio.ifi.asp.runtime.RuntimeReturnValue;
+import no.uio.ifi.asp.runtime.RuntimeScope;
+import no.uio.ifi.asp.runtime.RuntimeValue;
 import no.uio.ifi.asp.scanner.Scanner;
+import java.util.ArrayList;
 import static no.uio.ifi.asp.scanner.TokenKind.*;
 
-import java.util.ArrayList;
-
-import no.uio.ifi.asp.runtime.*;
-
 public class AspFuncDef extends AspCompoundStmt {
-  ArrayList<AspName> names = new ArrayList<>();
+  AspName name;
+  ArrayList<AspName> parameters = new ArrayList<>();
   AspSuite suite;
-  
+
   AspFuncDef(int n) {
     super(n);
   }
@@ -19,42 +19,42 @@ public class AspFuncDef extends AspCompoundStmt {
     enterParser("func def");
     AspFuncDef afd = new AspFuncDef(s.curLineNum());
     skip(s, defToken);
-    afd.names.add(AspName.parse(s));
+    afd.name = AspName.parse(s);
     skip(s, leftParToken);
     while (s.curToken().kind != rightParToken) {
-      afd.names.add(AspName.parse(s));
-      if (s.curToken().kind != commaToken)
+      afd.parameters.add(AspName.parse(s));
+      if (s.curToken().kind != commaToken) {
         break;
+      }
       skip(s, commaToken);
     }
     skip(s, rightParToken);
     skip(s, colonToken);
     afd.suite = AspSuite.parse(s);
+
     leaveParser("func def");
     return afd;
   }
 
   @Override
   void prettyPrint() {
+    int nPrinted = 0;
     prettyWrite("def ");
-    names.get(0).prettyPrint();
-    prettyWrite("( ");
-
-    // the first name in names is the one which is there all the time
-    if (names.size() == 1)
-      return;
-    for (int i = 1; i < names.size() - 1; i++) {
-      names.get(i).prettyPrint();
-      prettyWrite(", ");
+    this.name.prettyPrint();
+    prettyWrite(" (");
+    for (AspName an : this.parameters) {
+      if (nPrinted++ > 0) {
+        prettyWrite(", ");
+      }
+      an.prettyPrint();
     }
-    names.get(names.size() - 1).prettyPrint(); 
-    prettyWrite(" ): ");
-    suite.prettyPrint();
+    prettyWrite("): ");
+    this.suite.prettyPrint();
+    prettyWriteLn();
   }
 
   @Override
   RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
     return null;
   }
-  
 }

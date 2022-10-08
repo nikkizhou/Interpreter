@@ -6,7 +6,7 @@ import static no.uio.ifi.asp.scanner.TokenKind.*;
 
 class AspNotTest extends AspSyntax {
   AspComparison comparison;
-  static boolean notTokenExists = false;
+  boolean notTokenExists = false;
 
   AspNotTest(int n) {
     super(n);
@@ -15,10 +15,11 @@ class AspNotTest extends AspSyntax {
   static AspNotTest parse(Scanner s) {
     enterParser("not test");
     AspNotTest ant = new AspNotTest(s.curLineNum());
-    if (s.curToken().kind == notToken)
-      notTokenExists = true;
+    if (s.curToken().kind == notToken){
+      ant.notTokenExists = true;
+      skip(s, notToken);
+    }
     ant.comparison = AspComparison.parse(s);
-
     leaveParser("not test");
     return ant;
   }
