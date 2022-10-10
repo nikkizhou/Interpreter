@@ -141,4 +141,8 @@
           </expr>
         </assignment>
       </small stmt>
+<<<<<<< HEAD
 Asp parser error on line 8: Expected NEWLINE but found name!
+=======
+Asp parser error on line 8: Expected ; but found name!
+>>>>>>> 7d74232ec4f312a23d423258c6a6bb1c2c2e6298

@@ -792,7 +792,11 @@
   </stmt>
 </program>
 
+<<<<<<< HEAD
 def boblesorter (a): 
+=======
+def boblesorter( a ): 
+>>>>>>> 7d74232ec4f312a23d423258c6a6bb1c2c2e6298
   while True: 
     endret=False
     for iinrange(1, len(a)): 
@@ -801,7 +805,10 @@ def boblesorter (a):
         endret=True
     if not endret:
     return 0
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7d74232ec4f312a23d423258c6a6bb1c2c2e6298
 data=[3, 17, -3, 0, 3, 1, 12]
 boblesorter(data)
 print("Resultatet er", data)
