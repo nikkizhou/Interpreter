@@ -1,4 +1,5 @@
 package no.uio.ifi.asp.runtime;
+import no.uio.ifi.asp.parser.AspSyntax;
 
 public class RuntimeFloatValue extends RuntimeValue {
   double floatValue;
@@ -8,8 +9,8 @@ public class RuntimeFloatValue extends RuntimeValue {
     floatValue = v;
   }
   
-  public isIntOrFloat(RuntimeValue v){
-    return v instanceof RuntimeIntValue || v instanceof RuntimeFloatValue
+  public boolean isIntOrFloat(RuntimeValue v){
+    return v instanceof RuntimeIntValue || v instanceof RuntimeFloatValue;
   }
 
   @Override
@@ -23,7 +24,7 @@ public class RuntimeFloatValue extends RuntimeValue {
   }
   
   @Override
-  public boolean getFloatValue(String what, AspSyntax where) {
+  public double getFloatValue(String what, AspSyntax where) {
     return floatValue;
   }
 
@@ -34,7 +35,7 @@ public class RuntimeFloatValue extends RuntimeValue {
 
   @Override
   public long getIntValue(String what, AspSyntax where) {
-    (long)floatValue;
+    return (long)floatValue;
   }
 
   @Override
@@ -103,9 +104,10 @@ public class RuntimeFloatValue extends RuntimeValue {
 
   @Override
   public RuntimeValue evalModulo(RuntimeValue v, AspSyntax where) {
-    if (isIntOrFloat(v))
-      float v2 = v.getFloatValue("% operand", where)
+    if (isIntOrFloat(v)){
+      double v2 = v.getFloatValue("% operand", where);
       return new RuntimeFloatValue( floatValue-v2*Math.floor(floatValue/v2));
+    }
     runtimeError("Type error for %", where);
     return null;
   }

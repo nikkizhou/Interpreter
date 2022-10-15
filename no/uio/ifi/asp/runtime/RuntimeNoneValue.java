@@ -17,7 +17,6 @@ public class RuntimeNoneValue extends RuntimeValue {
 	return "None";
     }
 
-
     @Override
     public boolean getBoolValue(String what, AspSyntax where) {
 	return false;

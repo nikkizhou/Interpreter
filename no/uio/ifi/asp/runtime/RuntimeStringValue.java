@@ -6,6 +6,10 @@ import no.uio.ifi.asp.parser.AspSyntax;
 public class RuntimeStringValue extends RuntimeValue {
   String strValue;
 
+  public RuntimeStringValue(String v) {
+    strValue = v;
+  }
+
   @Override
   public String showInfo() {
     if (strValue.indexOf('\'') >= 0)
@@ -13,20 +17,20 @@ public class RuntimeStringValue extends RuntimeValue {
     else
       return "'" + strValue + "'";
   }
-  
+
   @Override
   String typeName() {
     return "string";
   }
 
   @Override
-  public boolean getStringValue(String what, AspSyntax where) {
+  public String getStringValue(String what, AspSyntax where) {
     return strValue;
   }
 
   @Override
   public boolean getBoolValue(String what, AspSyntax where) {
-    return strValue == '' ? false : true;
+    return strValue.isEmpty() ? false : true;
   }
 
   @Override
@@ -34,8 +38,8 @@ public class RuntimeStringValue extends RuntimeValue {
     try {
       return Long.parseLong(strValue);
     } catch (NumberFormatException e) {
-      runtimeError("Cannot convert '" + what + "' to integer " , where);
-      return null;
+      runtimeError("Cannot convert '" + what + "' to integer ", where);
+      return 0;
     }
   }
 
@@ -45,7 +49,7 @@ public class RuntimeStringValue extends RuntimeValue {
       return Double.parseDouble(strValue);
     } catch (NumberFormatException e) {
       runtimeError("Cannot convert '" + what + "' to float", where);
-      return null;
+      return 0.0;
     }
   }
 
@@ -56,21 +60,20 @@ public class RuntimeStringValue extends RuntimeValue {
     runtimeError("Type error for +", where);
     return null;
   }
-  
-  
+
   @Override
   public RuntimeValue evalEqual(RuntimeValue v, AspSyntax where) {
     if (v instanceof RuntimeStringValue)
-    return new RuntimeStringValue(strValue == v.getStringValue("== operand", where));
+      return new RuntimeBoolValue(strValue == v.getStringValue("== operand", where));
     runtimeError("Type error for ==", where);
     return null;
   }
 
   @Override
   public RuntimeValue evalGreater(RuntimeValue v, AspSyntax where) {
-    if (v instanceof RuntimeStringValue){
+    if (v instanceof RuntimeStringValue) {
       String vStr = v.getStringValue("> operand", where);
-      return new RuntimeBoolValue(strValue.compareTo(vStr)>0);
+      return new RuntimeBoolValue(strValue.compareTo(vStr) > 0);
     }
     runtimeError("Type error for >", where);
     return null;
@@ -78,9 +81,9 @@ public class RuntimeStringValue extends RuntimeValue {
 
   @Override
   public RuntimeValue evalGreaterEqual(RuntimeValue v, AspSyntax where) {
-    if (v instanceof RuntimeStringValue){
+    if (v instanceof RuntimeStringValue) {
       String vStr = v.getStringValue(">= operand", where);
-      return new RuntimeBoolValue(strValue.compareTo(vStr)>=0);
+      return new RuntimeBoolValue(strValue.compareTo(vStr) >= 0);
     }
     runtimeError("Type error for >=", where);
     return null;
@@ -95,17 +98,17 @@ public class RuntimeStringValue extends RuntimeValue {
     runtimeError("Type error for <", where);
     return null;
   }
-  
+
   @Override
   public RuntimeValue evalLessEqual(RuntimeValue v, AspSyntax where) {
-    if (v instanceof RuntimeStringValue){
+    if (v instanceof RuntimeStringValue) {
       String vStr = v.getStringValue("<= operand", where);
-      return new RuntimeBoolValue(strValue.compareTo(vStr)<=0);
+      return new RuntimeBoolValue(strValue.compareTo(vStr) <= 0);
     }
     runtimeError("Type error for <=", where);
     return null;
   }
-  
+
   @Override
   public RuntimeValue evalLen(AspSyntax where) {
     return new RuntimeIntValue(strValue.length());
@@ -113,15 +116,15 @@ public class RuntimeStringValue extends RuntimeValue {
 
   @Override
   public RuntimeValue evalMultiply(RuntimeValue v, AspSyntax where) {
-    if (v instanceof RuntimeIntValue)
+    if (v instanceof RuntimeIntValue) {
       String result = "";
-      for (int i = 0; i < v.getIntValue("* operand", where); i++) 
-        result+=strValue;
+      for (int i = 0; i < v.getIntValue("* operand", where); i++)
+        result += strValue;
       return new RuntimeStringValue(result);
+    }
     runtimeError("Type error for *", where);
     return null;
   }
-  
 
   @Override
   public RuntimeValue evalNot(AspSyntax where) {
@@ -135,20 +138,18 @@ public class RuntimeStringValue extends RuntimeValue {
     runtimeError("Type error for !=", where);
     return null;
   }
-  
 
   @Override
   public RuntimeValue evalSubscription(RuntimeValue v, AspSyntax where) {
     if (v instanceof RuntimeIntValue) {
-      long vInt = v.getIntValue("string subscription", where)
-      if ( vInt>= strValue.length() || vInt<0) {
-        runtimeError("Invalid index for the string!",where);
-      else {
-        return new RuntimeStringValue(Character.toString(strValue.charAt(vInt));
-      }
+      int vInt = (int) v.getIntValue("string subscription", where);
+      if (vInt >= strValue.length() || vInt < 0)
+        runtimeError("Invalid index for the string!", where);
+      else
+        return new RuntimeStringValue(Character.toString(strValue.charAt(vInt)));
     }
     runtimeError("Type error for *", where);
     return null;
   }
-  
+
 }

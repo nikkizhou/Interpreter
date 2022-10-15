@@ -32,8 +32,12 @@ class AspNotTest extends AspSyntax {
   }
 
   @Override
-  public RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
-    // -- Must be changed in part 3:
-    return null;
+  RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
+    // for example !5>=3, so v is a RuntimeBoolVlue where the boolValue is true;
+    RuntimeValue v = comparison.eval(curScope);
+    //since there is a ! before 5>=3,  the boolvalue v.getBoolValue returns becomes false;
+    if (notTokenExists)
+      v = v.evalNot(this);
+    return v;
   }
 }

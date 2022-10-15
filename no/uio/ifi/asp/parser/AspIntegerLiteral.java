@@ -27,6 +27,6 @@ public class AspIntegerLiteral extends AspAtom {
 
   @Override
   RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
-    return null;
+    return new RuntimeIntValue(integer);
   }
 }
