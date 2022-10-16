@@ -11,12 +11,14 @@ public class RuntimeStringValue extends RuntimeValue {
   }
 
   @Override
-  public String showInfo() {
+  public String toString() {
     if (strValue.indexOf('\'') >= 0)
       return '"' + strValue + '"';
     else
       return "'" + strValue + "'";
   }
+
+  
 
   @Override
   String typeName() {

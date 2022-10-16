@@ -17,12 +17,10 @@ public class AspListDisplay extends AspAtom {
     enterParser("list display");
     AspListDisplay ald = new AspListDisplay(s.curLineNum());
     skip(s, leftBracketToken);
-    ald.exprs.add(AspExpr.parse(s));
     while (s.curToken().kind != rightBracketToken) {
-      if (s.curToken().kind != commaToken)
-        break;
-      skip(s, commaToken);
       ald.exprs.add(AspExpr.parse(s));
+      if (s.curToken().kind != commaToken) break;
+      skip(s, commaToken);
     }
 
     skip(s, rightBracketToken);

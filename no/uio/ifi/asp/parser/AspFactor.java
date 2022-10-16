@@ -48,38 +48,44 @@ class AspFactor extends AspSyntax {
   @Override
   RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
     RuntimeValue v = primarys.get(0).eval(curScope);
-    TokenKind pre1 = factorPrefixes.get(0).prefix;
-    v = pre1 == minusToken ? v.evalNegate(this) : v.evalPositive(this);
-
+    AspFactorPrefix prefix = factorPrefixes.get(0);
+    if (prefix != null) v = handlePrefix(prefix, v);
+    
     //f.eks -2
-    if (primarys.size()==1)
-     return v;
-      
+    if (primarys.size() == 1) return v;
+
     //f.eks -2*8/3, so primarys:[2,8,3], factorOprs: [*,/], factorPrefixes: [-,null,null]
     for (int i = 1; i < primarys.size(); i++) {
       RuntimeValue v2 = primarys.get(i).eval(curScope);
-      TokenKind pre2 = factorPrefixes.get(i).prefix;
-      v2 = pre2 == minusToken ? v2.evalNegate(this) : v2.evalPositive(this);
-      TokenKind opr = factorOprs.get(i-1).opr;
-      
+      TokenKind opr = factorOprs.get(i - 1).opr;
+      prefix = factorPrefixes.get(i);
+      if (prefix != null) v2 = handlePrefix(prefix, v2);
+
       switch (opr) {
         case astToken:
-        v = v.evalMultiply(v2, this); break;
+          v = v.evalMultiply(v2, this);
+          break;
         case slashToken:
-        v = v.evalDivide(v2, this); break;
+          v = v.evalDivide(v2, this);
+          break;
         case doubleSlashToken:
-        v = v.evalIntDivide(v2, this); break;
+          v = v.evalIntDivide(v2, this);
+          break;
         case percentToken:
-        v = v.evalModulo(v2, this); break;
+          v = v.evalModulo(v2, this);
+          break;
         default:
-        Main.panic("Illegal term operator: " + opr + "!");
-        break;
+          Main.panic("Illegal term operator: " + opr + "!");
+          break;
       }
-      
-      v = primarys.get(i).eval(curScope);
-      pre1 = factorPrefixes.get(i).prefix;
-      v = pre1 == minusToken ? v.evalNegate(this) : v.evalPositive(this);
     }
+    return v;
+  }
+  
+  public RuntimeValue handlePrefix(AspFactorPrefix prefix, RuntimeValue v) { 
+    TokenKind tk = prefix.prefix;
+    if (tk == minusToken) return v.evalNegate(this);
+    else if (tk == plusToken) return v.evalPositive(this);
     return v;
   }
 }

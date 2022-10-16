@@ -2,6 +2,7 @@ package no.uio.ifi.asp.runtime;
 
 import no.uio.ifi.asp.parser.AspSyntax;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class RuntimeListValue extends RuntimeValue {
   ArrayList<RuntimeValue> listValue = new ArrayList<>();

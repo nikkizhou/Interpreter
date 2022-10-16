@@ -13,7 +13,6 @@ public abstract class RuntimeValue {
     }
 
     // For parts 3 and 4:
-
     public boolean getBoolValue(String what, AspSyntax where) {
         runtimeError("Type error: " + what + " is not a Boolean!", where);
         return false; // Required by the compiler!

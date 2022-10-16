@@ -19,7 +19,7 @@ public class RuntimeIntValue extends RuntimeValue {
   }
 
   @Override
-  public String showInfo() {
+  public String toString() {
     return (intValue + "");
   }
 
