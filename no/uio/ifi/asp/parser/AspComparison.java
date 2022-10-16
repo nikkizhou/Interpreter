@@ -64,7 +64,7 @@ class AspComparison extends AspSyntax {
         case greaterEqualToken:
           v = v.evalGreaterEqual(v2, this);
           break;
-        case equalToken:
+        case doubleEqualToken:
           v = v.evalEqual(v2, this);
           break;
         case notEqualToken:

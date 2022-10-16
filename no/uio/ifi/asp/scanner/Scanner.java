@@ -188,8 +188,8 @@ public class Scanner {
 			}
 			value = line.substring(start, current);
 
-			boolean startWithZero = value.startsWith("0") && value.length() > 1;
-			if (value.endsWith(".") || startWithZero)
+			boolean IntStartWithZero = value.startsWith("0") && value.length() > 1 && !value.contains(".");
+			if (value.endsWith(".") || IntStartWithZero)
 				scannerError("\nInvalid number: " + value);
 			kind = value.contains(".") ? floatToken : integerToken;
 

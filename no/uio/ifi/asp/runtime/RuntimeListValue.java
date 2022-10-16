@@ -54,10 +54,14 @@ public class RuntimeListValue extends RuntimeValue {
   }
 
   @Override
+  public RuntimeValue evalNot(AspSyntax where) {
+    return new RuntimeBoolValue(listValue.size() == 0);
+  }
+
+  @Override
   public RuntimeValue evalNotEqual(RuntimeValue v, AspSyntax where) {
-    if (v instanceof RuntimeNoneValue) {
+    if (v instanceof RuntimeNoneValue) 
       return new RuntimeBoolValue(true);
-    }
     runtimeError("Type error for != on list ", where);
     return null;
   }

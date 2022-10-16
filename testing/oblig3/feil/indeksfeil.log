@@ -1,0 +1,2 @@
+["a", "e", "i", "o", "u"][2.5] ==>
+Asp runtime error on line 3: Type error for list subscription.

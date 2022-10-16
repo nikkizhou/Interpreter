@@ -29,9 +29,8 @@ public class RuntimeBoolValue extends RuntimeValue {
 
     @Override
     public RuntimeValue evalEqual(RuntimeValue v, AspSyntax where) {
-	if (v instanceof RuntimeNoneValue) {
+	if (v instanceof RuntimeNoneValue) 
 	    return new RuntimeBoolValue(false);
-	}
 	runtimeError("Type error for ==.", where);
 	return null;  // Required by the compiler
     }

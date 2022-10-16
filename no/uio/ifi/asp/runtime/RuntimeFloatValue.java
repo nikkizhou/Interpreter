@@ -58,6 +58,8 @@ public class RuntimeFloatValue extends RuntimeValue {
   public RuntimeValue evalEqual(RuntimeValue v, AspSyntax where) {
     if (isIntOrFloat(v))
       return new RuntimeBoolValue(floatValue == v.getFloatValue("== operand", where));
+    else if (v instanceof RuntimeNoneValue)
+      return new RuntimeBoolValue(false);
     runtimeError("Type error for ==", where);
     return null;
   }
@@ -139,6 +141,8 @@ public class RuntimeFloatValue extends RuntimeValue {
   public RuntimeValue evalNotEqual(RuntimeValue v, AspSyntax where) {
     if (isIntOrFloat(v))
       return new RuntimeBoolValue(floatValue != v.getFloatValue("!= operand", where));
+    else if (v instanceof RuntimeNoneValue)
+      return new RuntimeBoolValue(true);
     runtimeError("Type error for !=", where);
     return null;
   }
