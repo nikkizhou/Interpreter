@@ -110,52 +110,34 @@ public class Scanner {
 			handelIndentToken(line);
 			// 3-2: handle other tokens
 			int current = 0;
-			while (current < removeComment(line).trim().length()) {
-				handleOprTokens(line.trim(), current);
-				current = handleNameLitTokens(line.trim(), current);
+			int lineLength = removeComment(line).trim().length();
+			while (current < lineLength) {
+				current = handleOprTokens(line.trim(), current);
+				if (current < lineLength)
+					current = handleNameLitTokens(line.trim(), current);
 				current++;
 			}
 			addToken(newLineToken, null);
 		}
-
 		for (Token t : curLineTokens)
 			Main.log.noteToken(t);
 	}
 
-	public void handleOprTokens(String line, int i) {
+	public int handleOprTokens(String line, int i) {
 		String curChar = "" + line.charAt(i);
 		String nextChar = i < line.length() - 1 ? "" + line.charAt(i + 1) : "";
-		String lastChar = i > 0 ? "" + line.charAt(i - 1) : "";
-
+		HashMap<String, TokenKind> allTkImages = new HashMap<>();
 		for (TokenKind tk : EnumSet.range(astToken, semicolonToken)) {
-			if (curChar.equals(tk.image)) {
-				switch (curChar) {
-					case "=":
-						boolean secondSymbol = Arrays.asList("=", "!", "<", ">").contains(lastChar);
-						if (!secondSymbol) {
-							addToken(nextChar.equals("=") ? doubleEqualToken : equalToken, null);
-						}
-						break;
-					case "/":
-						if (!lastChar.equals("/")) {
-							addToken(nextChar.equals("/") ? doubleSlashToken : slashToken, null);
-						}
-						break;
-					case ">":
-						addToken(nextChar.equals("=") ? greaterEqualToken : greaterToken, null);
-						break;
-					case "<":
-						addToken(nextChar.equals("=") ? lessEqualToken : lessToken, null);
-						break;
-					case "!":
-						addToken(nextChar.equals("=") ? notEqualToken : null, null);
-						break;
-					default:
-						addToken(tk, null);
-						break;
-				}
-			}
+			allTkImages.put(tk.image, tk);
 		}
+
+		if (allTkImages.keySet().contains(curChar + nextChar)) {
+			addToken(allTkImages.get(curChar + nextChar), null);
+			return i + 1;
+		} else if (allTkImages.keySet().contains(curChar)) {
+			addToken(allTkImages.get(curChar), null);
+		}
+		return i;
 	}
 
 	public int handleNameLitTokens(String line, int current) {

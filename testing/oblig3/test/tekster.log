@@ -8,3 +8,5 @@ Trace line 7: True
 Trace line 8: False
 "Sorli" > "Sørli" > "Sørlie" ==>
 Trace line 9: False
+"Sorli" != "Sørli" != "Sørlie" ==>
+Trace line 10: True
