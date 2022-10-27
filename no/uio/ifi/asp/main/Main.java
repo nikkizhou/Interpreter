@@ -122,6 +122,7 @@ public class Main {
 		globalScope = new RuntimeScope(libScope);
 		try {
 			prog.eval(globalScope);
+			System.out.println(globalScope.decls);
 		} catch (RuntimeReturnValue rrv) {
 			panic("Uncaught return exception!");
 		}

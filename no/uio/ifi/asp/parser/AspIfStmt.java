@@ -42,7 +42,7 @@ public class AspIfStmt extends AspCompoundStmt {
   @Override
   public void prettyPrint() {
     int nPrinted = 0;
-    prettyWrite("if");
+    prettyWrite("if ");
     for (AspExpr ex : exprs) {
       if (nPrinted > 0)
         prettyWrite("elif ");
@@ -60,7 +60,17 @@ public class AspIfStmt extends AspCompoundStmt {
 
   @Override
   public RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
-    // -- Must be changed in part 3:
-    return null;
+    for (int i = 0; i < suites.size(); i++) {
+      RuntimeValue expr = exprs.get(i).eval(curScope);
+        if (expr.getBoolValue("if statement", this)) {
+            trace("if True: ...");
+            return suites.get(i).eval(curScope);
+        }
+      }
+      if (elseExists) {
+        trace("else: ...");
+        return suites.get(suites.size()-1).eval(curScope);
+      }
+      return new RuntimeNoneValue();
   }
 }

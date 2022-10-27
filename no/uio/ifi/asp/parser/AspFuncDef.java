@@ -1,7 +1,5 @@
 package no.uio.ifi.asp.parser;
-import no.uio.ifi.asp.runtime.RuntimeReturnValue;
-import no.uio.ifi.asp.runtime.RuntimeScope;
-import no.uio.ifi.asp.runtime.RuntimeValue;
+import no.uio.ifi.asp.runtime.*;
 import no.uio.ifi.asp.scanner.Scanner;
 import java.util.ArrayList;
 import static no.uio.ifi.asp.scanner.TokenKind.*;
@@ -55,6 +53,9 @@ public class AspFuncDef extends AspCompoundStmt {
 
   @Override
   RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
+    RuntimeValue value = new RuntimeFunc(name.name, parameters, suite, curScope);
+    curScope.assign(name.name, value);
+    trace("def " + name.name);
     return null;
   }
 }

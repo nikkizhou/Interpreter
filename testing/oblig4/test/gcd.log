@@ -1,0 +1,6 @@
+
+def GCD (m, n): 
+  ifn == 0:
+    return melse: 
+    return GCD(n, m%n)
+v1=int(input("A number: "))v2=int(input("Another number: "))res=GCD(v1, v2)print("GCD("+str(v1)+","+str(v2)+") =", res)

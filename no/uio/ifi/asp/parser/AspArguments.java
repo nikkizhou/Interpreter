@@ -37,7 +37,7 @@ public class AspArguments extends AspPrimarySuffix {
     int nPrinted = 0;
     prettyWrite("(");
     for (AspExpr ae : exprs) {
-      if (nPrinted++ > 0) 
+      if (nPrinted++ > 0)
         prettyWrite(", ");
       ae.prettyPrint();
     }
@@ -46,10 +46,13 @@ public class AspArguments extends AspPrimarySuffix {
 
   @Override
   RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
-    ArrayList<RuntimeValue> aeList = new ArrayList<>();
+    ArrayList<RuntimeValue> alist = new ArrayList<>();
+
     for (AspExpr ae : exprs) {
-      aeList.add(ae.eval(curScope));
+      alist.add(ae.eval(curScope));
     }
-    return new RuntimeListValue(aeList); 
+    RuntimeListValue v = new RuntimeListValue(alist);
+
+    return v;
   }
 }

@@ -36,7 +36,7 @@ public class AspDictDisplay extends AspAtom {
   void prettyPrint() {
     prettyWrite("{");
     for (int i = 0; i < stringlits.size(); i++) {
-      if (i > 0) 
+      if (i > 0)
         prettyWrite(", ");
       stringlits.get(i).prettyPrint();
       prettyWrite(": ");

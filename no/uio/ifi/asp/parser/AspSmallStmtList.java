@@ -37,11 +37,17 @@ public class AspSmallStmtList extends AspStmt {
       prettyWrite("; ");
       smallStmts.get(i).prettyPrint();
     }
-    if (lastSemiCol) prettyWrite("; ");
+    if (lastSemiCol)
+      prettyWrite("; ");
+    prettyWriteLn();
   }
 
   @Override
   public RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
-    return null;
+    RuntimeValue v = null;
+    for (AspSmallStmt s : smallStmts) {
+      v = s.eval(curScope);
+    }
+    return v;
   }
 }

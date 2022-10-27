@@ -70,17 +70,28 @@ public class RuntimeListValue extends RuntimeValue {
   public RuntimeValue evalSubscription(RuntimeValue v, AspSyntax where) {
     if (v instanceof RuntimeIntValue) {
       int i = (int) v.getIntValue("list subscription", where);
-      if (i >= 0 && i<listValue.size()) {
-        return listValue.get(i) ;
-      //f.eks listValue[-1]
-      }else if (i<0 && -i <= listValue.size()){
+      if (i >= 0 && i < listValue.size()) {
+        return listValue.get(i);
+        //f.eks listValue[-1]
+      } else if (i < 0 && -i <= listValue.size()) {
         return listValue.get(-i + listValue.size());
-      }else{
+      } else {
         runtimeError("Invalid index for list subscription.", where);
         return null;
       }
     }
     runtimeError("Type error for list subscription.", where);
-        return null;
-  } 
+    return null;
+  }
+  
+  @Override
+  public void evalAssignElem(RuntimeValue inx, RuntimeValue val, AspSyntax where) {
+    if (!(inx instanceof RuntimeIntValue))
+      runtimeError("Index of list must be an integer", where);
+    int index = (int) inx.getIntValue("list assignment", where);
+    boolean valid = index >= 0 && index < listValue.size();
+    if (valid)
+      listValue.set(index, val);
+    else runtimeError("Index "+index+" out of bounds", where);
+  }
 }

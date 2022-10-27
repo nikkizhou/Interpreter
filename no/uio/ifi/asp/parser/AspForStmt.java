@@ -31,7 +31,7 @@ public class AspForStmt extends AspCompoundStmt {
   void prettyPrint() {
     prettyWrite("for ");
     name.prettyPrint();
-    prettyWrite("in");
+    prettyWrite(" in ");
     expr.prettyPrint();
     prettyWrite(": ");
     suite.prettyPrint();
@@ -39,6 +39,19 @@ public class AspForStmt extends AspCompoundStmt {
 
   @Override
   RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
+    RuntimeValue list = expr.eval(curScope);
+    long size = list.evalLen(this).getIntValue("for loop", this);
+
+    // f.eks for letter in myList (['a','b','c'])
+    for (long i = 0; i < size; i++) {
+      // value is myList[0], dvs 'a'
+      RuntimeValue value = list.evalSubscription(new RuntimeIntValue(i), this);
+      // assign: letter = 'a'
+      curScope.assign(name.toString(), value);
+      suite.eval(curScope);
+      trace("for loop " + (i + 1) + " : " + name.toString() + " = " + value.showInfo());
+    }
+    
     return null;
   }
   
