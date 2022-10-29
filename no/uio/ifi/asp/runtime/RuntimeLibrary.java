@@ -90,7 +90,7 @@ public class RuntimeLibrary extends RuntimeScope {
             @Override
             public RuntimeValue evalFuncCall(ArrayList<RuntimeValue> actualParams, AspSyntax where) {
                 checkNumParams(actualParams, 1, "str", where);
-                String strVal = actualParams.get(0).getStringValue("sstr", where);
+                String strVal = actualParams.get(0).toString();
                 return new RuntimeStringValue(strVal);
             }
         });

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class RuntimeListValue extends RuntimeValue {
-  ArrayList<RuntimeValue> listValue = new ArrayList<>();
+  public ArrayList<RuntimeValue> listValue = new ArrayList<>();
 
   public RuntimeListValue(ArrayList<RuntimeValue> list) {
     listValue = list;
@@ -17,7 +17,7 @@ public class RuntimeListValue extends RuntimeValue {
   }
 
   @Override
-  public String showInfo() {
+  public String toString() {
     return listValue.toString();
   }
 

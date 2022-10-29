@@ -60,7 +60,8 @@ public class AspIfStmt extends AspCompoundStmt {
 
   @Override
   public RuntimeValue eval(RuntimeScope curScope) throws RuntimeReturnValue {
-    for (int i = 0; i < suites.size(); i++) {
+    int NrIfSuites = elseExists ? suites.size() - 1 : suites.size();
+    for (int i = 0; i < NrIfSuites; i++) {
       RuntimeValue expr = exprs.get(i).eval(curScope);
         if (expr.getBoolValue("if statement", this)) {
             trace("if True: ...");

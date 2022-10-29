@@ -55,16 +55,16 @@ public class AspAssignment extends AspSmallStmt {
     }
     // f.eks myList[2][3][1] = add(1,2)
     String s = "";
-    RuntimeValue list = name.eval(curScope);
+    RuntimeValue colection = name.eval(curScope);
     RuntimeValue index = subs.get(0).eval(curScope);
     for (int i = 1; i < subs.size(); i++) {
-      list = list.evalSubscription(index, this);
+      colection = colection.evalSubscription(index, this);
       index = subs.get(i).eval(curScope);
       s += "[" + index.showInfo() + "]";
     }
     
     trace(name.name + s + " = " + exprVal.showInfo());
-    list.evalAssignElem(index, exprVal, this);
+    colection.evalAssignElem(index, exprVal, this);
     return null;
 
     // RuntimeValue exprVal = expr.eval(curScope);

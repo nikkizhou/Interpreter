@@ -2,7 +2,7 @@
 # Finn alle primtall opp til n
 # ved hjelp av teknikken kalt «Eratosthenes' sil».
 
-n = 1000.45
+n = 1000
 primes = [True] * (n+1)
 
 def find_primes ():
@@ -26,7 +26,7 @@ def list_primes():
              print(line_buf)
              line_buf = ''
           line_buf = line_buf + format(i,4)
-          n_printed = n_printed + 15
+          n_printed = n_printed + 1
     print(line_buf)
 
 find_primes()
