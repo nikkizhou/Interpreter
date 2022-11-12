@@ -14,6 +14,7 @@ m_navn[10] = "oktober"; m_navn[11] = "november"; m_navn[12] = "desember";
 # Svar 0 om det ikke er et lovlig månedsnavn.
 def finn_maaned (m_id):
    for m_ix in range(1,len(m_navn)):
+      print(m_navn[m_ix], m_id)
       if m_navn[m_ix] == m_id: return m_ix
    return 0
 
@@ -22,6 +23,7 @@ def les_maaned ():
    while True:
       m_id = input("Oppgi en måned: ")
       m_num = finn_maaned(m_id)
+      print(m_num)
       if m_num > 0: return m_num
       print("Ulovlig måned!")
 
@@ -50,7 +52,7 @@ def finn_dag_nr (aa, m, d):
    return d_nr
 
 # Hovedprogrammet:
-aar = int(input("Oppgi et år: "))
+aar = input("Oppgi et år: ")
 maaned = les_maaned()
 dag = int(input("Oppgi en dag: "))
 u_dag = ukedag[(6+finn_dag_nr(aar,maaned,dag))%7] + "dag"

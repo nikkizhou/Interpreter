@@ -2,6 +2,7 @@ package no.uio.ifi.asp.parser;
 
 import no.uio.ifi.asp.runtime.*;
 import no.uio.ifi.asp.scanner.*;
+import no.uio.ifi.asp.main.*;
 
 import static no.uio.ifi.asp.scanner.TokenKind.*;
 
@@ -45,6 +46,7 @@ public class AspGlobalStmt extends AspSmallStmt {
     for (AspName n : names) {
       curScope.registerGlobalName(n.name);
     }
+    Main.log.traceEval("global " + names.toString().replace("[","").replace("]", ""),this);
     return null;
   }
 }

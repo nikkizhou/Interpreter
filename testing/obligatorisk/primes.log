@@ -1,0 +1,1318 @@
+Trace line 5: n = 100
+Trace line 6: primes = [True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True]
+Trace line 8: def find_primes
+Trace line 15: def format
+Trace line 20: def list_primes
+Trace line 32: Call function find_primes
+Trace line 9: Call function range with params 2,101,
+Trace line 9: For loop: i1 = 2
+Trace line 10: i2 = 4
+Trace line 11: while True: ...
+Trace line 12: primes[4] = False
+Trace line 13: i2 = 6
+Trace line 11: while True: ...
+Trace line 12: primes[6] = False
+Trace line 13: i2 = 8
+Trace line 11: while True: ...
+Trace line 12: primes[8] = False
+Trace line 13: i2 = 10
+Trace line 11: while True: ...
+Trace line 12: primes[10] = False
+Trace line 13: i2 = 12
+Trace line 11: while True: ...
+Trace line 12: primes[12] = False
+Trace line 13: i2 = 14
+Trace line 11: while True: ...
+Trace line 12: primes[14] = False
+Trace line 13: i2 = 16
+Trace line 11: while True: ...
+Trace line 12: primes[16] = False
+Trace line 13: i2 = 18
+Trace line 11: while True: ...
+Trace line 12: primes[18] = False
+Trace line 13: i2 = 20
+Trace line 11: while True: ...
+Trace line 12: primes[20] = False
+Trace line 13: i2 = 22
+Trace line 11: while True: ...
+Trace line 12: primes[22] = False
+Trace line 13: i2 = 24
+Trace line 11: while True: ...
+Trace line 12: primes[24] = False
+Trace line 13: i2 = 26
+Trace line 11: while True: ...
+Trace line 12: primes[26] = False
+Trace line 13: i2 = 28
+Trace line 11: while True: ...
+Trace line 12: primes[28] = False
+Trace line 13: i2 = 30
+Trace line 11: while True: ...
+Trace line 12: primes[30] = False
+Trace line 13: i2 = 32
+Trace line 11: while True: ...
+Trace line 12: primes[32] = False
+Trace line 13: i2 = 34
+Trace line 11: while True: ...
+Trace line 12: primes[34] = False
+Trace line 13: i2 = 36
+Trace line 11: while True: ...
+Trace line 12: primes[36] = False
+Trace line 13: i2 = 38
+Trace line 11: while True: ...
+Trace line 12: primes[38] = False
+Trace line 13: i2 = 40
+Trace line 11: while True: ...
+Trace line 12: primes[40] = False
+Trace line 13: i2 = 42
+Trace line 11: while True: ...
+Trace line 12: primes[42] = False
+Trace line 13: i2 = 44
+Trace line 11: while True: ...
+Trace line 12: primes[44] = False
+Trace line 13: i2 = 46
+Trace line 11: while True: ...
+Trace line 12: primes[46] = False
+Trace line 13: i2 = 48
+Trace line 11: while True: ...
+Trace line 12: primes[48] = False
+Trace line 13: i2 = 50
+Trace line 11: while True: ...
+Trace line 12: primes[50] = False
+Trace line 13: i2 = 52
+Trace line 11: while True: ...
+Trace line 12: primes[52] = False
+Trace line 13: i2 = 54
+Trace line 11: while True: ...
+Trace line 12: primes[54] = False
+Trace line 13: i2 = 56
+Trace line 11: while True: ...
+Trace line 12: primes[56] = False
+Trace line 13: i2 = 58
+Trace line 11: while True: ...
+Trace line 12: primes[58] = False
+Trace line 13: i2 = 60
+Trace line 11: while True: ...
+Trace line 12: primes[60] = False
+Trace line 13: i2 = 62
+Trace line 11: while True: ...
+Trace line 12: primes[62] = False
+Trace line 13: i2 = 64
+Trace line 11: while True: ...
+Trace line 12: primes[64] = False
+Trace line 13: i2 = 66
+Trace line 11: while True: ...
+Trace line 12: primes[66] = False
+Trace line 13: i2 = 68
+Trace line 11: while True: ...
+Trace line 12: primes[68] = False
+Trace line 13: i2 = 70
+Trace line 11: while True: ...
+Trace line 12: primes[70] = False
+Trace line 13: i2 = 72
+Trace line 11: while True: ...
+Trace line 12: primes[72] = False
+Trace line 13: i2 = 74
+Trace line 11: while True: ...
+Trace line 12: primes[74] = False
+Trace line 13: i2 = 76
+Trace line 11: while True: ...
+Trace line 12: primes[76] = False
+Trace line 13: i2 = 78
+Trace line 11: while True: ...
+Trace line 12: primes[78] = False
+Trace line 13: i2 = 80
+Trace line 11: while True: ...
+Trace line 12: primes[80] = False
+Trace line 13: i2 = 82
+Trace line 11: while True: ...
+Trace line 12: primes[82] = False
+Trace line 13: i2 = 84
+Trace line 11: while True: ...
+Trace line 12: primes[84] = False
+Trace line 13: i2 = 86
+Trace line 11: while True: ...
+Trace line 12: primes[86] = False
+Trace line 13: i2 = 88
+Trace line 11: while True: ...
+Trace line 12: primes[88] = False
+Trace line 13: i2 = 90
+Trace line 11: while True: ...
+Trace line 12: primes[90] = False
+Trace line 13: i2 = 92
+Trace line 11: while True: ...
+Trace line 12: primes[92] = False
+Trace line 13: i2 = 94
+Trace line 11: while True: ...
+Trace line 12: primes[94] = False
+Trace line 13: i2 = 96
+Trace line 11: while True: ...
+Trace line 12: primes[96] = False
+Trace line 13: i2 = 98
+Trace line 11: while True: ...
+Trace line 12: primes[98] = False
+Trace line 13: i2 = 100
+Trace line 11: while True: ...
+Trace line 12: primes[100] = False
+Trace line 13: i2 = 102
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 3
+Trace line 10: i2 = 9
+Trace line 11: while True: ...
+Trace line 12: primes[9] = False
+Trace line 13: i2 = 12
+Trace line 11: while True: ...
+Trace line 12: primes[12] = False
+Trace line 13: i2 = 15
+Trace line 11: while True: ...
+Trace line 12: primes[15] = False
+Trace line 13: i2 = 18
+Trace line 11: while True: ...
+Trace line 12: primes[18] = False
+Trace line 13: i2 = 21
+Trace line 11: while True: ...
+Trace line 12: primes[21] = False
+Trace line 13: i2 = 24
+Trace line 11: while True: ...
+Trace line 12: primes[24] = False
+Trace line 13: i2 = 27
+Trace line 11: while True: ...
+Trace line 12: primes[27] = False
+Trace line 13: i2 = 30
+Trace line 11: while True: ...
+Trace line 12: primes[30] = False
+Trace line 13: i2 = 33
+Trace line 11: while True: ...
+Trace line 12: primes[33] = False
+Trace line 13: i2 = 36
+Trace line 11: while True: ...
+Trace line 12: primes[36] = False
+Trace line 13: i2 = 39
+Trace line 11: while True: ...
+Trace line 12: primes[39] = False
+Trace line 13: i2 = 42
+Trace line 11: while True: ...
+Trace line 12: primes[42] = False
+Trace line 13: i2 = 45
+Trace line 11: while True: ...
+Trace line 12: primes[45] = False
+Trace line 13: i2 = 48
+Trace line 11: while True: ...
+Trace line 12: primes[48] = False
+Trace line 13: i2 = 51
+Trace line 11: while True: ...
+Trace line 12: primes[51] = False
+Trace line 13: i2 = 54
+Trace line 11: while True: ...
+Trace line 12: primes[54] = False
+Trace line 13: i2 = 57
+Trace line 11: while True: ...
+Trace line 12: primes[57] = False
+Trace line 13: i2 = 60
+Trace line 11: while True: ...
+Trace line 12: primes[60] = False
+Trace line 13: i2 = 63
+Trace line 11: while True: ...
+Trace line 12: primes[63] = False
+Trace line 13: i2 = 66
+Trace line 11: while True: ...
+Trace line 12: primes[66] = False
+Trace line 13: i2 = 69
+Trace line 11: while True: ...
+Trace line 12: primes[69] = False
+Trace line 13: i2 = 72
+Trace line 11: while True: ...
+Trace line 12: primes[72] = False
+Trace line 13: i2 = 75
+Trace line 11: while True: ...
+Trace line 12: primes[75] = False
+Trace line 13: i2 = 78
+Trace line 11: while True: ...
+Trace line 12: primes[78] = False
+Trace line 13: i2 = 81
+Trace line 11: while True: ...
+Trace line 12: primes[81] = False
+Trace line 13: i2 = 84
+Trace line 11: while True: ...
+Trace line 12: primes[84] = False
+Trace line 13: i2 = 87
+Trace line 11: while True: ...
+Trace line 12: primes[87] = False
+Trace line 13: i2 = 90
+Trace line 11: while True: ...
+Trace line 12: primes[90] = False
+Trace line 13: i2 = 93
+Trace line 11: while True: ...
+Trace line 12: primes[93] = False
+Trace line 13: i2 = 96
+Trace line 11: while True: ...
+Trace line 12: primes[96] = False
+Trace line 13: i2 = 99
+Trace line 11: while True: ...
+Trace line 12: primes[99] = False
+Trace line 13: i2 = 102
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 4
+Trace line 10: i2 = 16
+Trace line 11: while True: ...
+Trace line 12: primes[16] = False
+Trace line 13: i2 = 20
+Trace line 11: while True: ...
+Trace line 12: primes[20] = False
+Trace line 13: i2 = 24
+Trace line 11: while True: ...
+Trace line 12: primes[24] = False
+Trace line 13: i2 = 28
+Trace line 11: while True: ...
+Trace line 12: primes[28] = False
+Trace line 13: i2 = 32
+Trace line 11: while True: ...
+Trace line 12: primes[32] = False
+Trace line 13: i2 = 36
+Trace line 11: while True: ...
+Trace line 12: primes[36] = False
+Trace line 13: i2 = 40
+Trace line 11: while True: ...
+Trace line 12: primes[40] = False
+Trace line 13: i2 = 44
+Trace line 11: while True: ...
+Trace line 12: primes[44] = False
+Trace line 13: i2 = 48
+Trace line 11: while True: ...
+Trace line 12: primes[48] = False
+Trace line 13: i2 = 52
+Trace line 11: while True: ...
+Trace line 12: primes[52] = False
+Trace line 13: i2 = 56
+Trace line 11: while True: ...
+Trace line 12: primes[56] = False
+Trace line 13: i2 = 60
+Trace line 11: while True: ...
+Trace line 12: primes[60] = False
+Trace line 13: i2 = 64
+Trace line 11: while True: ...
+Trace line 12: primes[64] = False
+Trace line 13: i2 = 68
+Trace line 11: while True: ...
+Trace line 12: primes[68] = False
+Trace line 13: i2 = 72
+Trace line 11: while True: ...
+Trace line 12: primes[72] = False
+Trace line 13: i2 = 76
+Trace line 11: while True: ...
+Trace line 12: primes[76] = False
+Trace line 13: i2 = 80
+Trace line 11: while True: ...
+Trace line 12: primes[80] = False
+Trace line 13: i2 = 84
+Trace line 11: while True: ...
+Trace line 12: primes[84] = False
+Trace line 13: i2 = 88
+Trace line 11: while True: ...
+Trace line 12: primes[88] = False
+Trace line 13: i2 = 92
+Trace line 11: while True: ...
+Trace line 12: primes[92] = False
+Trace line 13: i2 = 96
+Trace line 11: while True: ...
+Trace line 12: primes[96] = False
+Trace line 13: i2 = 100
+Trace line 11: while True: ...
+Trace line 12: primes[100] = False
+Trace line 13: i2 = 104
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 5
+Trace line 10: i2 = 25
+Trace line 11: while True: ...
+Trace line 12: primes[25] = False
+Trace line 13: i2 = 30
+Trace line 11: while True: ...
+Trace line 12: primes[30] = False
+Trace line 13: i2 = 35
+Trace line 11: while True: ...
+Trace line 12: primes[35] = False
+Trace line 13: i2 = 40
+Trace line 11: while True: ...
+Trace line 12: primes[40] = False
+Trace line 13: i2 = 45
+Trace line 11: while True: ...
+Trace line 12: primes[45] = False
+Trace line 13: i2 = 50
+Trace line 11: while True: ...
+Trace line 12: primes[50] = False
+Trace line 13: i2 = 55
+Trace line 11: while True: ...
+Trace line 12: primes[55] = False
+Trace line 13: i2 = 60
+Trace line 11: while True: ...
+Trace line 12: primes[60] = False
+Trace line 13: i2 = 65
+Trace line 11: while True: ...
+Trace line 12: primes[65] = False
+Trace line 13: i2 = 70
+Trace line 11: while True: ...
+Trace line 12: primes[70] = False
+Trace line 13: i2 = 75
+Trace line 11: while True: ...
+Trace line 12: primes[75] = False
+Trace line 13: i2 = 80
+Trace line 11: while True: ...
+Trace line 12: primes[80] = False
+Trace line 13: i2 = 85
+Trace line 11: while True: ...
+Trace line 12: primes[85] = False
+Trace line 13: i2 = 90
+Trace line 11: while True: ...
+Trace line 12: primes[90] = False
+Trace line 13: i2 = 95
+Trace line 11: while True: ...
+Trace line 12: primes[95] = False
+Trace line 13: i2 = 100
+Trace line 11: while True: ...
+Trace line 12: primes[100] = False
+Trace line 13: i2 = 105
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 6
+Trace line 10: i2 = 36
+Trace line 11: while True: ...
+Trace line 12: primes[36] = False
+Trace line 13: i2 = 42
+Trace line 11: while True: ...
+Trace line 12: primes[42] = False
+Trace line 13: i2 = 48
+Trace line 11: while True: ...
+Trace line 12: primes[48] = False
+Trace line 13: i2 = 54
+Trace line 11: while True: ...
+Trace line 12: primes[54] = False
+Trace line 13: i2 = 60
+Trace line 11: while True: ...
+Trace line 12: primes[60] = False
+Trace line 13: i2 = 66
+Trace line 11: while True: ...
+Trace line 12: primes[66] = False
+Trace line 13: i2 = 72
+Trace line 11: while True: ...
+Trace line 12: primes[72] = False
+Trace line 13: i2 = 78
+Trace line 11: while True: ...
+Trace line 12: primes[78] = False
+Trace line 13: i2 = 84
+Trace line 11: while True: ...
+Trace line 12: primes[84] = False
+Trace line 13: i2 = 90
+Trace line 11: while True: ...
+Trace line 12: primes[90] = False
+Trace line 13: i2 = 96
+Trace line 11: while True: ...
+Trace line 12: primes[96] = False
+Trace line 13: i2 = 102
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 7
+Trace line 10: i2 = 49
+Trace line 11: while True: ...
+Trace line 12: primes[49] = False
+Trace line 13: i2 = 56
+Trace line 11: while True: ...
+Trace line 12: primes[56] = False
+Trace line 13: i2 = 63
+Trace line 11: while True: ...
+Trace line 12: primes[63] = False
+Trace line 13: i2 = 70
+Trace line 11: while True: ...
+Trace line 12: primes[70] = False
+Trace line 13: i2 = 77
+Trace line 11: while True: ...
+Trace line 12: primes[77] = False
+Trace line 13: i2 = 84
+Trace line 11: while True: ...
+Trace line 12: primes[84] = False
+Trace line 13: i2 = 91
+Trace line 11: while True: ...
+Trace line 12: primes[91] = False
+Trace line 13: i2 = 98
+Trace line 11: while True: ...
+Trace line 12: primes[98] = False
+Trace line 13: i2 = 105
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 8
+Trace line 10: i2 = 64
+Trace line 11: while True: ...
+Trace line 12: primes[64] = False
+Trace line 13: i2 = 72
+Trace line 11: while True: ...
+Trace line 12: primes[72] = False
+Trace line 13: i2 = 80
+Trace line 11: while True: ...
+Trace line 12: primes[80] = False
+Trace line 13: i2 = 88
+Trace line 11: while True: ...
+Trace line 12: primes[88] = False
+Trace line 13: i2 = 96
+Trace line 11: while True: ...
+Trace line 12: primes[96] = False
+Trace line 13: i2 = 104
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 9
+Trace line 10: i2 = 81
+Trace line 11: while True: ...
+Trace line 12: primes[81] = False
+Trace line 13: i2 = 90
+Trace line 11: while True: ...
+Trace line 12: primes[90] = False
+Trace line 13: i2 = 99
+Trace line 11: while True: ...
+Trace line 12: primes[99] = False
+Trace line 13: i2 = 108
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 10
+Trace line 10: i2 = 100
+Trace line 11: while True: ...
+Trace line 12: primes[100] = False
+Trace line 13: i2 = 110
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 11
+Trace line 10: i2 = 121
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 12
+Trace line 10: i2 = 144
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 13
+Trace line 10: i2 = 169
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 14
+Trace line 10: i2 = 196
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 15
+Trace line 10: i2 = 225
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 16
+Trace line 10: i2 = 256
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 17
+Trace line 10: i2 = 289
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 18
+Trace line 10: i2 = 324
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 19
+Trace line 10: i2 = 361
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 20
+Trace line 10: i2 = 400
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 21
+Trace line 10: i2 = 441
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 22
+Trace line 10: i2 = 484
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 23
+Trace line 10: i2 = 529
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 24
+Trace line 10: i2 = 576
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 25
+Trace line 10: i2 = 625
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 26
+Trace line 10: i2 = 676
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 27
+Trace line 10: i2 = 729
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 28
+Trace line 10: i2 = 784
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 29
+Trace line 10: i2 = 841
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 30
+Trace line 10: i2 = 900
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 31
+Trace line 10: i2 = 961
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 32
+Trace line 10: i2 = 1024
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 33
+Trace line 10: i2 = 1089
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 34
+Trace line 10: i2 = 1156
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 35
+Trace line 10: i2 = 1225
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 36
+Trace line 10: i2 = 1296
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 37
+Trace line 10: i2 = 1369
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 38
+Trace line 10: i2 = 1444
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 39
+Trace line 10: i2 = 1521
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 40
+Trace line 10: i2 = 1600
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 41
+Trace line 10: i2 = 1681
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 42
+Trace line 10: i2 = 1764
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 43
+Trace line 10: i2 = 1849
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 44
+Trace line 10: i2 = 1936
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 45
+Trace line 10: i2 = 2025
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 46
+Trace line 10: i2 = 2116
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 47
+Trace line 10: i2 = 2209
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 48
+Trace line 10: i2 = 2304
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 49
+Trace line 10: i2 = 2401
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 50
+Trace line 10: i2 = 2500
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 51
+Trace line 10: i2 = 2601
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 52
+Trace line 10: i2 = 2704
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 53
+Trace line 10: i2 = 2809
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 54
+Trace line 10: i2 = 2916
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 55
+Trace line 10: i2 = 3025
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 56
+Trace line 10: i2 = 3136
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 57
+Trace line 10: i2 = 3249
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 58
+Trace line 10: i2 = 3364
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 59
+Trace line 10: i2 = 3481
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 60
+Trace line 10: i2 = 3600
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 61
+Trace line 10: i2 = 3721
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 62
+Trace line 10: i2 = 3844
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 63
+Trace line 10: i2 = 3969
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 64
+Trace line 10: i2 = 4096
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 65
+Trace line 10: i2 = 4225
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 66
+Trace line 10: i2 = 4356
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 67
+Trace line 10: i2 = 4489
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 68
+Trace line 10: i2 = 4624
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 69
+Trace line 10: i2 = 4761
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 70
+Trace line 10: i2 = 4900
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 71
+Trace line 10: i2 = 5041
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 72
+Trace line 10: i2 = 5184
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 73
+Trace line 10: i2 = 5329
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 74
+Trace line 10: i2 = 5476
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 75
+Trace line 10: i2 = 5625
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 76
+Trace line 10: i2 = 5776
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 77
+Trace line 10: i2 = 5929
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 78
+Trace line 10: i2 = 6084
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 79
+Trace line 10: i2 = 6241
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 80
+Trace line 10: i2 = 6400
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 81
+Trace line 10: i2 = 6561
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 82
+Trace line 10: i2 = 6724
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 83
+Trace line 10: i2 = 6889
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 84
+Trace line 10: i2 = 7056
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 85
+Trace line 10: i2 = 7225
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 86
+Trace line 10: i2 = 7396
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 87
+Trace line 10: i2 = 7569
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 88
+Trace line 10: i2 = 7744
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 89
+Trace line 10: i2 = 7921
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 90
+Trace line 10: i2 = 8100
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 91
+Trace line 10: i2 = 8281
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 92
+Trace line 10: i2 = 8464
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 93
+Trace line 10: i2 = 8649
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 94
+Trace line 10: i2 = 8836
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 95
+Trace line 10: i2 = 9025
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 96
+Trace line 10: i2 = 9216
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 97
+Trace line 10: i2 = 9409
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 98
+Trace line 10: i2 = 9604
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 99
+Trace line 10: i2 = 9801
+Trace line 11: while False:
+Trace line 9: For loop: i1 = 100
+Trace line 10: i2 = 10000
+Trace line 11: while False:
+Trace line 33: Call function list_primes
+Trace line 21: n_printed = 0
+Trace line 22: line_buf = ''
+Trace line 23: Call function range with params 2,101,
+Trace line 23: For loop: i = 2
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 2,4,
+Trace line 16: Call function str with params 2,
+Trace line 16: res = '2'
+Trace line 17: Call function len with params '2',
+Trace line 17: Call function len with params '2',
+Trace line 17: while True: ...
+Trace line 17: res = ' 2'
+Trace line 17: Call function len with params ' 2',
+Trace line 17: Call function len with params ' 2',
+Trace line 17: while True: ...
+Trace line 17: res = '  2'
+Trace line 17: Call function len with params '  2',
+Trace line 17: Call function len with params '  2',
+Trace line 17: while True: ...
+Trace line 17: res = '   2'
+Trace line 17: Call function len with params '   2',
+Trace line 17: Call function len with params '   2',
+Trace line 17: while False:
+Trace line 18: return '   2'
+Trace line 28: line_buf = '   2'
+Trace line 29: n_printed = 1
+Trace line 23: For loop: i = 3
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 3,4,
+Trace line 16: Call function str with params 3,
+Trace line 16: res = '3'
+Trace line 17: Call function len with params '3',
+Trace line 17: Call function len with params '3',
+Trace line 17: while True: ...
+Trace line 17: res = ' 3'
+Trace line 17: Call function len with params ' 3',
+Trace line 17: Call function len with params ' 3',
+Trace line 17: while True: ...
+Trace line 17: res = '  3'
+Trace line 17: Call function len with params '  3',
+Trace line 17: Call function len with params '  3',
+Trace line 17: while True: ...
+Trace line 17: res = '   3'
+Trace line 17: Call function len with params '   3',
+Trace line 17: Call function len with params '   3',
+Trace line 17: while False:
+Trace line 18: return '   3'
+Trace line 28: line_buf = '   2   3'
+Trace line 29: n_printed = 2
+Trace line 23: For loop: i = 4
+Trace line 23: For loop: i = 5
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 5,4,
+Trace line 16: Call function str with params 5,
+Trace line 16: res = '5'
+Trace line 17: Call function len with params '5',
+Trace line 17: Call function len with params '5',
+Trace line 17: while True: ...
+Trace line 17: res = ' 5'
+Trace line 17: Call function len with params ' 5',
+Trace line 17: Call function len with params ' 5',
+Trace line 17: while True: ...
+Trace line 17: res = '  5'
+Trace line 17: Call function len with params '  5',
+Trace line 17: Call function len with params '  5',
+Trace line 17: while True: ...
+Trace line 17: res = '   5'
+Trace line 17: Call function len with params '   5',
+Trace line 17: Call function len with params '   5',
+Trace line 17: while False:
+Trace line 18: return '   5'
+Trace line 28: line_buf = '   2   3   5'
+Trace line 29: n_printed = 3
+Trace line 23: For loop: i = 6
+Trace line 23: For loop: i = 7
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 7,4,
+Trace line 16: Call function str with params 7,
+Trace line 16: res = '7'
+Trace line 17: Call function len with params '7',
+Trace line 17: Call function len with params '7',
+Trace line 17: while True: ...
+Trace line 17: res = ' 7'
+Trace line 17: Call function len with params ' 7',
+Trace line 17: Call function len with params ' 7',
+Trace line 17: while True: ...
+Trace line 17: res = '  7'
+Trace line 17: Call function len with params '  7',
+Trace line 17: Call function len with params '  7',
+Trace line 17: while True: ...
+Trace line 17: res = '   7'
+Trace line 17: Call function len with params '   7',
+Trace line 17: Call function len with params '   7',
+Trace line 17: while False:
+Trace line 18: return '   7'
+Trace line 28: line_buf = '   2   3   5   7'
+Trace line 29: n_printed = 4
+Trace line 23: For loop: i = 8
+Trace line 23: For loop: i = 9
+Trace line 23: For loop: i = 10
+Trace line 23: For loop: i = 11
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 11,4,
+Trace line 16: Call function str with params 11,
+Trace line 16: res = '11'
+Trace line 17: Call function len with params '11',
+Trace line 17: Call function len with params '11',
+Trace line 17: while True: ...
+Trace line 17: res = ' 11'
+Trace line 17: Call function len with params ' 11',
+Trace line 17: Call function len with params ' 11',
+Trace line 17: while True: ...
+Trace line 17: res = '  11'
+Trace line 17: Call function len with params '  11',
+Trace line 17: Call function len with params '  11',
+Trace line 17: while False:
+Trace line 18: return '  11'
+Trace line 28: line_buf = '   2   3   5   7  11'
+Trace line 29: n_printed = 5
+Trace line 23: For loop: i = 12
+Trace line 23: For loop: i = 13
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 13,4,
+Trace line 16: Call function str with params 13,
+Trace line 16: res = '13'
+Trace line 17: Call function len with params '13',
+Trace line 17: Call function len with params '13',
+Trace line 17: while True: ...
+Trace line 17: res = ' 13'
+Trace line 17: Call function len with params ' 13',
+Trace line 17: Call function len with params ' 13',
+Trace line 17: while True: ...
+Trace line 17: res = '  13'
+Trace line 17: Call function len with params '  13',
+Trace line 17: Call function len with params '  13',
+Trace line 17: while False:
+Trace line 18: return '  13'
+Trace line 28: line_buf = '   2   3   5   7  11  13'
+Trace line 29: n_printed = 6
+Trace line 23: For loop: i = 14
+Trace line 23: For loop: i = 15
+Trace line 23: For loop: i = 16
+Trace line 23: For loop: i = 17
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 17,4,
+Trace line 16: Call function str with params 17,
+Trace line 16: res = '17'
+Trace line 17: Call function len with params '17',
+Trace line 17: Call function len with params '17',
+Trace line 17: while True: ...
+Trace line 17: res = ' 17'
+Trace line 17: Call function len with params ' 17',
+Trace line 17: Call function len with params ' 17',
+Trace line 17: while True: ...
+Trace line 17: res = '  17'
+Trace line 17: Call function len with params '  17',
+Trace line 17: Call function len with params '  17',
+Trace line 17: while False:
+Trace line 18: return '  17'
+Trace line 28: line_buf = '   2   3   5   7  11  13  17'
+Trace line 29: n_printed = 7
+Trace line 23: For loop: i = 18
+Trace line 23: For loop: i = 19
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 19,4,
+Trace line 16: Call function str with params 19,
+Trace line 16: res = '19'
+Trace line 17: Call function len with params '19',
+Trace line 17: Call function len with params '19',
+Trace line 17: while True: ...
+Trace line 17: res = ' 19'
+Trace line 17: Call function len with params ' 19',
+Trace line 17: Call function len with params ' 19',
+Trace line 17: while True: ...
+Trace line 17: res = '  19'
+Trace line 17: Call function len with params '  19',
+Trace line 17: Call function len with params '  19',
+Trace line 17: while False:
+Trace line 18: return '  19'
+Trace line 28: line_buf = '   2   3   5   7  11  13  17  19'
+Trace line 29: n_printed = 8
+Trace line 23: For loop: i = 20
+Trace line 23: For loop: i = 21
+Trace line 23: For loop: i = 22
+Trace line 23: For loop: i = 23
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 23,4,
+Trace line 16: Call function str with params 23,
+Trace line 16: res = '23'
+Trace line 17: Call function len with params '23',
+Trace line 17: Call function len with params '23',
+Trace line 17: while True: ...
+Trace line 17: res = ' 23'
+Trace line 17: Call function len with params ' 23',
+Trace line 17: Call function len with params ' 23',
+Trace line 17: while True: ...
+Trace line 17: res = '  23'
+Trace line 17: Call function len with params '  23',
+Trace line 17: Call function len with params '  23',
+Trace line 17: while False:
+Trace line 18: return '  23'
+Trace line 28: line_buf = '   2   3   5   7  11  13  17  19  23'
+Trace line 29: n_printed = 9
+Trace line 23: For loop: i = 24
+Trace line 23: For loop: i = 25
+Trace line 23: For loop: i = 26
+Trace line 23: For loop: i = 27
+Trace line 23: For loop: i = 28
+Trace line 23: For loop: i = 29
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 29,4,
+Trace line 16: Call function str with params 29,
+Trace line 16: res = '29'
+Trace line 17: Call function len with params '29',
+Trace line 17: Call function len with params '29',
+Trace line 17: while True: ...
+Trace line 17: res = ' 29'
+Trace line 17: Call function len with params ' 29',
+Trace line 17: Call function len with params ' 29',
+Trace line 17: while True: ...
+Trace line 17: res = '  29'
+Trace line 17: Call function len with params '  29',
+Trace line 17: Call function len with params '  29',
+Trace line 17: while False:
+Trace line 18: return '  29'
+Trace line 28: line_buf = '   2   3   5   7  11  13  17  19  23  29'
+Trace line 29: n_printed = 10
+Trace line 23: For loop: i = 30
+Trace line 23: For loop: i = 31
+Trace line 24: if True: ...
+Trace line 25: if True: ...
+Trace line 26: Call function print with params '   2   3   5   7  11  13  17  19  23  29',
+Trace line 27: line_buf = ''
+Trace line 28: Call function format with params 31,4,
+Trace line 16: Call function str with params 31,
+Trace line 16: res = '31'
+Trace line 17: Call function len with params '31',
+Trace line 17: Call function len with params '31',
+Trace line 17: while True: ...
+Trace line 17: res = ' 31'
+Trace line 17: Call function len with params ' 31',
+Trace line 17: Call function len with params ' 31',
+Trace line 17: while True: ...
+Trace line 17: res = '  31'
+Trace line 17: Call function len with params '  31',
+Trace line 17: Call function len with params '  31',
+Trace line 17: while False:
+Trace line 18: return '  31'
+Trace line 28: line_buf = '  31'
+Trace line 29: n_printed = 11
+Trace line 23: For loop: i = 32
+Trace line 23: For loop: i = 33
+Trace line 23: For loop: i = 34
+Trace line 23: For loop: i = 35
+Trace line 23: For loop: i = 36
+Trace line 23: For loop: i = 37
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 37,4,
+Trace line 16: Call function str with params 37,
+Trace line 16: res = '37'
+Trace line 17: Call function len with params '37',
+Trace line 17: Call function len with params '37',
+Trace line 17: while True: ...
+Trace line 17: res = ' 37'
+Trace line 17: Call function len with params ' 37',
+Trace line 17: Call function len with params ' 37',
+Trace line 17: while True: ...
+Trace line 17: res = '  37'
+Trace line 17: Call function len with params '  37',
+Trace line 17: Call function len with params '  37',
+Trace line 17: while False:
+Trace line 18: return '  37'
+Trace line 28: line_buf = '  31  37'
+Trace line 29: n_printed = 12
+Trace line 23: For loop: i = 38
+Trace line 23: For loop: i = 39
+Trace line 23: For loop: i = 40
+Trace line 23: For loop: i = 41
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 41,4,
+Trace line 16: Call function str with params 41,
+Trace line 16: res = '41'
+Trace line 17: Call function len with params '41',
+Trace line 17: Call function len with params '41',
+Trace line 17: while True: ...
+Trace line 17: res = ' 41'
+Trace line 17: Call function len with params ' 41',
+Trace line 17: Call function len with params ' 41',
+Trace line 17: while True: ...
+Trace line 17: res = '  41'
+Trace line 17: Call function len with params '  41',
+Trace line 17: Call function len with params '  41',
+Trace line 17: while False:
+Trace line 18: return '  41'
+Trace line 28: line_buf = '  31  37  41'
+Trace line 29: n_printed = 13
+Trace line 23: For loop: i = 42
+Trace line 23: For loop: i = 43
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 43,4,
+Trace line 16: Call function str with params 43,
+Trace line 16: res = '43'
+Trace line 17: Call function len with params '43',
+Trace line 17: Call function len with params '43',
+Trace line 17: while True: ...
+Trace line 17: res = ' 43'
+Trace line 17: Call function len with params ' 43',
+Trace line 17: Call function len with params ' 43',
+Trace line 17: while True: ...
+Trace line 17: res = '  43'
+Trace line 17: Call function len with params '  43',
+Trace line 17: Call function len with params '  43',
+Trace line 17: while False:
+Trace line 18: return '  43'
+Trace line 28: line_buf = '  31  37  41  43'
+Trace line 29: n_printed = 14
+Trace line 23: For loop: i = 44
+Trace line 23: For loop: i = 45
+Trace line 23: For loop: i = 46
+Trace line 23: For loop: i = 47
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 47,4,
+Trace line 16: Call function str with params 47,
+Trace line 16: res = '47'
+Trace line 17: Call function len with params '47',
+Trace line 17: Call function len with params '47',
+Trace line 17: while True: ...
+Trace line 17: res = ' 47'
+Trace line 17: Call function len with params ' 47',
+Trace line 17: Call function len with params ' 47',
+Trace line 17: while True: ...
+Trace line 17: res = '  47'
+Trace line 17: Call function len with params '  47',
+Trace line 17: Call function len with params '  47',
+Trace line 17: while False:
+Trace line 18: return '  47'
+Trace line 28: line_buf = '  31  37  41  43  47'
+Trace line 29: n_printed = 15
+Trace line 23: For loop: i = 48
+Trace line 23: For loop: i = 49
+Trace line 23: For loop: i = 50
+Trace line 23: For loop: i = 51
+Trace line 23: For loop: i = 52
+Trace line 23: For loop: i = 53
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 53,4,
+Trace line 16: Call function str with params 53,
+Trace line 16: res = '53'
+Trace line 17: Call function len with params '53',
+Trace line 17: Call function len with params '53',
+Trace line 17: while True: ...
+Trace line 17: res = ' 53'
+Trace line 17: Call function len with params ' 53',
+Trace line 17: Call function len with params ' 53',
+Trace line 17: while True: ...
+Trace line 17: res = '  53'
+Trace line 17: Call function len with params '  53',
+Trace line 17: Call function len with params '  53',
+Trace line 17: while False:
+Trace line 18: return '  53'
+Trace line 28: line_buf = '  31  37  41  43  47  53'
+Trace line 29: n_printed = 16
+Trace line 23: For loop: i = 54
+Trace line 23: For loop: i = 55
+Trace line 23: For loop: i = 56
+Trace line 23: For loop: i = 57
+Trace line 23: For loop: i = 58
+Trace line 23: For loop: i = 59
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 59,4,
+Trace line 16: Call function str with params 59,
+Trace line 16: res = '59'
+Trace line 17: Call function len with params '59',
+Trace line 17: Call function len with params '59',
+Trace line 17: while True: ...
+Trace line 17: res = ' 59'
+Trace line 17: Call function len with params ' 59',
+Trace line 17: Call function len with params ' 59',
+Trace line 17: while True: ...
+Trace line 17: res = '  59'
+Trace line 17: Call function len with params '  59',
+Trace line 17: Call function len with params '  59',
+Trace line 17: while False:
+Trace line 18: return '  59'
+Trace line 28: line_buf = '  31  37  41  43  47  53  59'
+Trace line 29: n_printed = 17
+Trace line 23: For loop: i = 60
+Trace line 23: For loop: i = 61
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 61,4,
+Trace line 16: Call function str with params 61,
+Trace line 16: res = '61'
+Trace line 17: Call function len with params '61',
+Trace line 17: Call function len with params '61',
+Trace line 17: while True: ...
+Trace line 17: res = ' 61'
+Trace line 17: Call function len with params ' 61',
+Trace line 17: Call function len with params ' 61',
+Trace line 17: while True: ...
+Trace line 17: res = '  61'
+Trace line 17: Call function len with params '  61',
+Trace line 17: Call function len with params '  61',
+Trace line 17: while False:
+Trace line 18: return '  61'
+Trace line 28: line_buf = '  31  37  41  43  47  53  59  61'
+Trace line 29: n_printed = 18
+Trace line 23: For loop: i = 62
+Trace line 23: For loop: i = 63
+Trace line 23: For loop: i = 64
+Trace line 23: For loop: i = 65
+Trace line 23: For loop: i = 66
+Trace line 23: For loop: i = 67
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 67,4,
+Trace line 16: Call function str with params 67,
+Trace line 16: res = '67'
+Trace line 17: Call function len with params '67',
+Trace line 17: Call function len with params '67',
+Trace line 17: while True: ...
+Trace line 17: res = ' 67'
+Trace line 17: Call function len with params ' 67',
+Trace line 17: Call function len with params ' 67',
+Trace line 17: while True: ...
+Trace line 17: res = '  67'
+Trace line 17: Call function len with params '  67',
+Trace line 17: Call function len with params '  67',
+Trace line 17: while False:
+Trace line 18: return '  67'
+Trace line 28: line_buf = '  31  37  41  43  47  53  59  61  67'
+Trace line 29: n_printed = 19
+Trace line 23: For loop: i = 68
+Trace line 23: For loop: i = 69
+Trace line 23: For loop: i = 70
+Trace line 23: For loop: i = 71
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 71,4,
+Trace line 16: Call function str with params 71,
+Trace line 16: res = '71'
+Trace line 17: Call function len with params '71',
+Trace line 17: Call function len with params '71',
+Trace line 17: while True: ...
+Trace line 17: res = ' 71'
+Trace line 17: Call function len with params ' 71',
+Trace line 17: Call function len with params ' 71',
+Trace line 17: while True: ...
+Trace line 17: res = '  71'
+Trace line 17: Call function len with params '  71',
+Trace line 17: Call function len with params '  71',
+Trace line 17: while False:
+Trace line 18: return '  71'
+Trace line 28: line_buf = '  31  37  41  43  47  53  59  61  67  71'
+Trace line 29: n_printed = 20
+Trace line 23: For loop: i = 72
+Trace line 23: For loop: i = 73
+Trace line 24: if True: ...
+Trace line 25: if True: ...
+Trace line 26: Call function print with params '  31  37  41  43  47  53  59  61  67  71',
+Trace line 27: line_buf = ''
+Trace line 28: Call function format with params 73,4,
+Trace line 16: Call function str with params 73,
+Trace line 16: res = '73'
+Trace line 17: Call function len with params '73',
+Trace line 17: Call function len with params '73',
+Trace line 17: while True: ...
+Trace line 17: res = ' 73'
+Trace line 17: Call function len with params ' 73',
+Trace line 17: Call function len with params ' 73',
+Trace line 17: while True: ...
+Trace line 17: res = '  73'
+Trace line 17: Call function len with params '  73',
+Trace line 17: Call function len with params '  73',
+Trace line 17: while False:
+Trace line 18: return '  73'
+Trace line 28: line_buf = '  73'
+Trace line 29: n_printed = 21
+Trace line 23: For loop: i = 74
+Trace line 23: For loop: i = 75
+Trace line 23: For loop: i = 76
+Trace line 23: For loop: i = 77
+Trace line 23: For loop: i = 78
+Trace line 23: For loop: i = 79
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 79,4,
+Trace line 16: Call function str with params 79,
+Trace line 16: res = '79'
+Trace line 17: Call function len with params '79',
+Trace line 17: Call function len with params '79',
+Trace line 17: while True: ...
+Trace line 17: res = ' 79'
+Trace line 17: Call function len with params ' 79',
+Trace line 17: Call function len with params ' 79',
+Trace line 17: while True: ...
+Trace line 17: res = '  79'
+Trace line 17: Call function len with params '  79',
+Trace line 17: Call function len with params '  79',
+Trace line 17: while False:
+Trace line 18: return '  79'
+Trace line 28: line_buf = '  73  79'
+Trace line 29: n_printed = 22
+Trace line 23: For loop: i = 80
+Trace line 23: For loop: i = 81
+Trace line 23: For loop: i = 82
+Trace line 23: For loop: i = 83
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 83,4,
+Trace line 16: Call function str with params 83,
+Trace line 16: res = '83'
+Trace line 17: Call function len with params '83',
+Trace line 17: Call function len with params '83',
+Trace line 17: while True: ...
+Trace line 17: res = ' 83'
+Trace line 17: Call function len with params ' 83',
+Trace line 17: Call function len with params ' 83',
+Trace line 17: while True: ...
+Trace line 17: res = '  83'
+Trace line 17: Call function len with params '  83',
+Trace line 17: Call function len with params '  83',
+Trace line 17: while False:
+Trace line 18: return '  83'
+Trace line 28: line_buf = '  73  79  83'
+Trace line 29: n_printed = 23
+Trace line 23: For loop: i = 84
+Trace line 23: For loop: i = 85
+Trace line 23: For loop: i = 86
+Trace line 23: For loop: i = 87
+Trace line 23: For loop: i = 88
+Trace line 23: For loop: i = 89
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 89,4,
+Trace line 16: Call function str with params 89,
+Trace line 16: res = '89'
+Trace line 17: Call function len with params '89',
+Trace line 17: Call function len with params '89',
+Trace line 17: while True: ...
+Trace line 17: res = ' 89'
+Trace line 17: Call function len with params ' 89',
+Trace line 17: Call function len with params ' 89',
+Trace line 17: while True: ...
+Trace line 17: res = '  89'
+Trace line 17: Call function len with params '  89',
+Trace line 17: Call function len with params '  89',
+Trace line 17: while False:
+Trace line 18: return '  89'
+Trace line 28: line_buf = '  73  79  83  89'
+Trace line 29: n_printed = 24
+Trace line 23: For loop: i = 90
+Trace line 23: For loop: i = 91
+Trace line 23: For loop: i = 92
+Trace line 23: For loop: i = 93
+Trace line 23: For loop: i = 94
+Trace line 23: For loop: i = 95
+Trace line 23: For loop: i = 96
+Trace line 23: For loop: i = 97
+Trace line 24: if True: ...
+Trace line 28: Call function format with params 97,4,
+Trace line 16: Call function str with params 97,
+Trace line 16: res = '97'
+Trace line 17: Call function len with params '97',
+Trace line 17: Call function len with params '97',
+Trace line 17: while True: ...
+Trace line 17: res = ' 97'
+Trace line 17: Call function len with params ' 97',
+Trace line 17: Call function len with params ' 97',
+Trace line 17: while True: ...
+Trace line 17: res = '  97'
+Trace line 17: Call function len with params '  97',
+Trace line 17: Call function len with params '  97',
+Trace line 17: while False:
+Trace line 18: return '  97'
+Trace line 28: line_buf = '  73  79  83  89  97'
+Trace line 29: n_printed = 25
+Trace line 23: For loop: i = 98
+Trace line 23: For loop: i = 99
+Trace line 23: For loop: i = 100
+Trace line 30: Call function print with params '  73  79  83  89  97',

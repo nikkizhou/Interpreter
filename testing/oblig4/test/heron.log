@@ -1,30 +1,54 @@
-
-def pow (a, b): 
-  if b > 1:
-    return pow(a, b - 1)*a
-  elif b < 1:
-    return pow(a, b + 1)/a
-  else: 
-    return a
-
-def rough_log (x): 
-  if x > 10:
-    return rough_log(x/10) + 1
-  if x < 0.10000000149011612:
-    return rough_log(x*10) - 1
-  return 1
-
-def sqrt (v): 
-  x = [0]*12
-  d = rough_log(v)
-  if d%2 == 1:
-    x[0] = pow(2*10, (d - 1)//2)
-  else: 
-    x[0] = pow(6*10, (d - 2)//2)
-  for ix in range(0, 11): 
-    x[ix + 1] = (x[ix] + v/x[ix])/2
-  return x[11]
-
-v = float(input("Give a number: "))
-sq2 = sqrt(v)
-print(sq2, "squared is", pow(sq2, 2))
+Trace line 5: def pow
+Trace line 14: def rough_log
+Trace line 22: def sqrt
+Trace line 38: Call function input with params 'Give a number: ',
+Trace line 38: Call function float with params '45',
+Trace line 38: v = 45.0
+Trace line 39: Call function sqrt with params 45.0,
+Trace line 23: x = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Trace line 25: Call function rough_log with params 45.0,
+Trace line 15: if True: ...
+Trace line 16: Call function rough_log with params 4.5,
+Trace line 19: return 1
+Trace line 16: return 2
+Trace line 25: d = 2
+Trace line 26: else: ...
+Trace line 29: Call function pow with params 60,0,
+Trace line 6: if True: ...
+Trace line 9: Call function pow with params 60,1,
+Trace line 6: else: ...
+Trace line 11: return 60
+Trace line 9: return 1.0
+Trace line 29: x[0] = 1.0
+Trace line 31: Call function range with params 0,11,
+Trace line 31: For loop: ix = 0
+Trace line 32: x[1] = 23.0
+Trace line 31: For loop: ix = 1
+Trace line 32: x[2] = 12.478260869565217
+Trace line 31: For loop: ix = 2
+Trace line 32: x[3] = 8.04226632328435
+Trace line 31: For loop: ix = 3
+Trace line 32: x[4] = 6.818852000529285
+Trace line 31: For loop: ix = 4
+Trace line 32: x[5] = 6.709101663888598
+Trace line 31: For loop: ix = 5
+Trace line 32: x[6] = 6.7082039925611845
+Trace line 31: For loop: ix = 6
+Trace line 32: x[7] = 6.708203932499369
+Trace line 31: For loop: ix = 7
+Trace line 32: x[8] = 6.708203932499369
+Trace line 31: For loop: ix = 8
+Trace line 32: x[9] = 6.708203932499369
+Trace line 31: For loop: ix = 9
+Trace line 32: x[10] = 6.708203932499369
+Trace line 31: For loop: ix = 10
+Trace line 32: x[11] = 6.708203932499369
+Trace line 34: return 6.708203932499369
+Trace line 39: sq2 = 6.708203932499369
+Trace line 40: Call function pow with params 6.708203932499369,2,
+Trace line 6: if True: ...
+Trace line 7: Call function pow with params 6.708203932499369,1,
+Trace line 6: else: ...
+Trace line 11: return 6.708203932499369
+Trace line 7: return 45.00000000000001
+Trace line 40: Call function print with params 6.708203932499369,'squared is',45.00000000000001,

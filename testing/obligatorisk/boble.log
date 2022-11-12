@@ -1,81 +1,91 @@
 Trace line 4: def boblesorter
 Trace line 13: data = [3, 17, -3, 0, 3, 1, 12]
+Trace line 14: Call function boblesorter with params [3, 17, -3, 0, 3, 1, 12],
 Trace line 5: while True: ...
 Trace line 6: endret = False
-Trace line 7: for loop 1 : i = 1
+Trace line 7: Call function len with params [3, 17, -3, 0, 3, 1, 12],
+Trace line 7: Call function range with params 1,7,
+Trace line 7: For loop: i = 1
+Trace line 7: For loop: i = 2
 Trace line 8: if True: ...
 Trace line 9: t = 17
-Trace line 9: a = -3
-Trace line 9: a = 17
+Trace line 9: a[1] = -3
+Trace line 9: a[2] = 17
 Trace line 10: endret = True
-Trace line 7: for loop 2 : i = 2
+Trace line 7: For loop: i = 3
 Trace line 8: if True: ...
 Trace line 9: t = 17
-Trace line 9: a = 0
-Trace line 9: a = 17
+Trace line 9: a[2] = 0
+Trace line 9: a[3] = 17
 Trace line 10: endret = True
-Trace line 7: for loop 3 : i = 3
+Trace line 7: For loop: i = 4
 Trace line 8: if True: ...
 Trace line 9: t = 17
-Trace line 9: a = 3
-Trace line 9: a = 17
+Trace line 9: a[3] = 3
+Trace line 9: a[4] = 17
 Trace line 10: endret = True
-Trace line 7: for loop 4 : i = 4
+Trace line 7: For loop: i = 5
 Trace line 8: if True: ...
 Trace line 9: t = 17
-Trace line 9: a = 1
-Trace line 9: a = 17
+Trace line 9: a[4] = 1
+Trace line 9: a[5] = 17
 Trace line 10: endret = True
-Trace line 7: for loop 5 : i = 5
+Trace line 7: For loop: i = 6
 Trace line 8: if True: ...
 Trace line 9: t = 17
-Trace line 9: a = 12
-Trace line 9: a = 17
+Trace line 9: a[5] = 12
+Trace line 9: a[6] = 17
 Trace line 10: endret = True
-Trace line 7: for loop 6 : i = 6
 Trace line 5: while True: ...
 Trace line 6: endret = False
+Trace line 7: Call function len with params [3, -3, 0, 3, 1, 12, 17],
+Trace line 7: Call function range with params 1,7,
+Trace line 7: For loop: i = 1
 Trace line 8: if True: ...
 Trace line 9: t = 3
-Trace line 9: a = -3
-Trace line 9: a = 3
+Trace line 9: a[0] = -3
+Trace line 9: a[1] = 3
 Trace line 10: endret = True
-Trace line 7: for loop 1 : i = 1
+Trace line 7: For loop: i = 2
 Trace line 8: if True: ...
 Trace line 9: t = 3
-Trace line 9: a = 0
-Trace line 9: a = 3
+Trace line 9: a[1] = 0
+Trace line 9: a[2] = 3
 Trace line 10: endret = True
-Trace line 7: for loop 2 : i = 2
-Trace line 7: for loop 3 : i = 3
+Trace line 7: For loop: i = 3
+Trace line 7: For loop: i = 4
 Trace line 8: if True: ...
 Trace line 9: t = 3
-Trace line 9: a = 1
-Trace line 9: a = 3
+Trace line 9: a[3] = 1
+Trace line 9: a[4] = 3
 Trace line 10: endret = True
-Trace line 7: for loop 4 : i = 4
-Trace line 7: for loop 5 : i = 5
-Trace line 7: for loop 6 : i = 6
+Trace line 7: For loop: i = 5
+Trace line 7: For loop: i = 6
 Trace line 5: while True: ...
 Trace line 6: endret = False
-Trace line 7: for loop 1 : i = 1
-Trace line 7: for loop 2 : i = 2
+Trace line 7: Call function len with params [-3, 0, 3, 1, 3, 12, 17],
+Trace line 7: Call function range with params 1,7,
+Trace line 7: For loop: i = 1
+Trace line 7: For loop: i = 2
+Trace line 7: For loop: i = 3
 Trace line 8: if True: ...
 Trace line 9: t = 3
-Trace line 9: a = 1
-Trace line 9: a = 3
+Trace line 9: a[2] = 1
+Trace line 9: a[3] = 3
 Trace line 10: endret = True
-Trace line 7: for loop 3 : i = 3
-Trace line 7: for loop 4 : i = 4
-Trace line 7: for loop 5 : i = 5
-Trace line 7: for loop 6 : i = 6
+Trace line 7: For loop: i = 4
+Trace line 7: For loop: i = 5
+Trace line 7: For loop: i = 6
 Trace line 5: while True: ...
 Trace line 6: endret = False
-Trace line 7: for loop 1 : i = 1
-Trace line 7: for loop 2 : i = 2
-Trace line 7: for loop 3 : i = 3
-Trace line 7: for loop 4 : i = 4
-Trace line 7: for loop 5 : i = 5
-Trace line 7: for loop 6 : i = 6
+Trace line 7: Call function len with params [-3, 0, 1, 3, 3, 12, 17],
+Trace line 7: Call function range with params 1,7,
+Trace line 7: For loop: i = 1
+Trace line 7: For loop: i = 2
+Trace line 7: For loop: i = 3
+Trace line 7: For loop: i = 4
+Trace line 7: For loop: i = 5
+Trace line 7: For loop: i = 6
 Trace line 11: if True: ...
 Trace line 11: return 0
+Trace line 15: Call function print with params 'Resultatet er',[-3, 0, 1, 3, 3, 12, 17],

@@ -1,0 +1,6 @@
+Trace line 1: def f
+Trace line 4: Call function f
+Trace line 2: return 3
+Trace line 4: x = 3
+Trace line 5: return 3
+Asp runtime error on line 5: Return statement outside function!

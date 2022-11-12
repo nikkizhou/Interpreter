@@ -1,0 +1,25 @@
+Trace line 4: ukedag = ['man', 'tirs', 'ons', 'tors', 'fre', 'lør', 'søn']
+Trace line 5: m_leng = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+Trace line 7: m_navn = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Trace line 8: m_navn[1] = 'januar'
+Trace line 8: m_navn[2] = 'februar'
+Trace line 8: m_navn[3] = 'mars'
+Trace line 9: m_navn[4] = 'april'
+Trace line 9: m_navn[5] = 'mai'
+Trace line 9: m_navn[6] = 'juni'
+Trace line 10: m_navn[7] = 'juli'
+Trace line 10: m_navn[8] = 'august'
+Trace line 10: m_navn[9] = 'september'
+Trace line 11: m_navn[10] = 'oktober'
+Trace line 11: m_navn[11] = 'november'
+Trace line 11: m_navn[12] = 'desember'
+Trace line 15: def finn_maaned
+Trace line 22: def les_maaned
+Trace line 31: def er_skuddaar
+Trace line 35: def finn_m_leng
+Trace line 40: def finn_dag_nr
+Trace line 55: Call function input with params 'Oppgi et år: ',
+Trace line 55: aar = '1222'
+Trace line 56: Call function les_maaned
+Trace line 23: while True: ...
+Trace line 24: Call function input with params 'Oppgi en måned: ',

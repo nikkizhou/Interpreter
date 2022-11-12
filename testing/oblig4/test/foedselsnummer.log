@@ -1,33 +1,575 @@
-
-vekter_1 = [3, 7, 6, 1, 8, 9, 4, 5, 2]
-vekter_2 = [5, 4, 3, 2, 7, 6, 5, 4, 3, 2]
-def sjekk_kontrollsiffer (n, vekter): 
-  sum = 0
-  for i in range(0, n): 
-    sum = sum + vekter[i]*sifre[i]
-  return (sum + sifre[n])%11 == 0
-
-def kun_sifre (t): 
-  res = ""
-  for i in range(0, len(t)): 
-    c = t[i]
-    if ("0" <= c and c <= "9"):
-      res = res + c
-    else: 
-       pass 
-  return res
-
-fnr = kun_sifre(input("Fødselsnummer: "))
-while fnr != "": 
-  if len(fnr) != 11:
-    print(fnr, "har ikke 11 sifre!")
-  else: 
-    sifre = [0]*11; 
-    for i in range(0, 11): 
-      sifre[i] = int(fnr[i])
-    if sjekk_kontrollsiffer(9, vekter_1) and sjekk_kontrollsiffer(10, vekter_2):
-      print("Fødselsnummer", fnr, "er OK.")
-    else: 
-      print("Fødselsnummer", fnr, "har feil i kontrollsiffer.")
-  fnr = kun_sifre(input("Fødselsnummer: "))
-Asp runtime error on line 24: Name fnr not defined!
+Trace line 4: vekter_1 = [3, 7, 6, 1, 8, 9, 4, 5, 2]
+Trace line 5: vekter_2 = [5, 4, 3, 2, 7, 6, 5, 4, 3, 2]
+Trace line 7: def sjekk_kontrollsiffer
+Trace line 13: def kun_sifre
+Trace line 23: Call function input with params 'Fødselsnummer: '
+Trace line 23: Call function kun_sifre with params '23119429489'
+Trace line 14: res = ''
+Trace line 15: Call function len with params '23119429489'
+Trace line 15: Call function range with params 0, 11
+Trace line 16: c = '2'
+Trace line 17: if True: ...
+Trace line 18: res = '2'
+Trace line 15: For loop: i = 0
+Trace line 16: c = '3'
+Trace line 17: if True: ...
+Trace line 18: res = '23'
+Trace line 15: For loop: i = 1
+Trace line 16: c = '1'
+Trace line 17: if True: ...
+Trace line 18: res = '231'
+Trace line 15: For loop: i = 2
+Trace line 16: c = '1'
+Trace line 17: if True: ...
+Trace line 18: res = '2311'
+Trace line 15: For loop: i = 3
+Trace line 16: c = '9'
+Trace line 17: if True: ...
+Trace line 18: res = '23119'
+Trace line 15: For loop: i = 4
+Trace line 16: c = '4'
+Trace line 17: if True: ...
+Trace line 18: res = '231194'
+Trace line 15: For loop: i = 5
+Trace line 16: c = '2'
+Trace line 17: if True: ...
+Trace line 18: res = '2311942'
+Trace line 15: For loop: i = 6
+Trace line 16: c = '9'
+Trace line 17: if True: ...
+Trace line 18: res = '23119429'
+Trace line 15: For loop: i = 7
+Trace line 16: c = '4'
+Trace line 17: if True: ...
+Trace line 18: res = '231194294'
+Trace line 15: For loop: i = 8
+Trace line 16: c = '8'
+Trace line 17: if True: ...
+Trace line 18: res = '2311942948'
+Trace line 15: For loop: i = 9
+Trace line 16: c = '9'
+Trace line 17: if True: ...
+Trace line 18: res = '23119429489'
+Trace line 15: For loop: i = 10
+Trace line 21: return '23119429489'
+Trace line 23: fnr = '23119429489'
+Trace line 24: while True: ...
+Trace line 25: Call function len with params '23119429489'
+Trace line 25: Call function len with params '23119429489'
+Trace line 25: else: ...
+Trace line 28: sifre = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Trace line 29: Call function range with params 0, 11
+Trace line 30: Call function int with params '2'
+Trace line 30: sifre[0] = 2
+Trace line 29: For loop: i = 0
+Trace line 30: Call function int with params '3'
+Trace line 30: sifre[1] = 3
+Trace line 29: For loop: i = 1
+Trace line 30: Call function int with params '1'
+Trace line 30: sifre[2] = 1
+Trace line 29: For loop: i = 2
+Trace line 30: Call function int with params '1'
+Trace line 30: sifre[3] = 1
+Trace line 29: For loop: i = 3
+Trace line 30: Call function int with params '9'
+Trace line 30: sifre[4] = 9
+Trace line 29: For loop: i = 4
+Trace line 30: Call function int with params '4'
+Trace line 30: sifre[5] = 4
+Trace line 29: For loop: i = 5
+Trace line 30: Call function int with params '2'
+Trace line 30: sifre[6] = 2
+Trace line 29: For loop: i = 6
+Trace line 30: Call function int with params '9'
+Trace line 30: sifre[7] = 9
+Trace line 29: For loop: i = 7
+Trace line 30: Call function int with params '4'
+Trace line 30: sifre[8] = 4
+Trace line 29: For loop: i = 8
+Trace line 30: Call function int with params '8'
+Trace line 30: sifre[9] = 8
+Trace line 29: For loop: i = 9
+Trace line 30: Call function int with params '9'
+Trace line 30: sifre[10] = 9
+Trace line 29: For loop: i = 10
+Trace line 31: Call function sjekk_kontrollsiffer with params 9, [3, 7, 6, 1, 8, 9, 4, 5, 2]
+Trace line 8: sum = 0
+Trace line 9: Call function range with params 0, 9
+Trace line 10: sum = 6
+Trace line 9: For loop: i = 0
+Trace line 10: sum = 27
+Trace line 9: For loop: i = 1
+Trace line 10: sum = 33
+Trace line 9: For loop: i = 2
+Trace line 10: sum = 34
+Trace line 9: For loop: i = 3
+Trace line 10: sum = 106
+Trace line 9: For loop: i = 4
+Trace line 10: sum = 142
+Trace line 9: For loop: i = 5
+Trace line 10: sum = 150
+Trace line 9: For loop: i = 6
+Trace line 10: sum = 195
+Trace line 9: For loop: i = 7
+Trace line 10: sum = 203
+Trace line 9: For loop: i = 8
+Trace line 11: return False
+Trace line 31: else: ...
+Trace line 34: Call function print with params 'Fødselsnummer', '23119429489', 'har feil i kontrollsiffer.'
+Trace line 36: Call function input with params 'Fødselsnummer: '
+Trace line 36: Call function kun_sifre with params '23119429488'
+Trace line 14: res = ''
+Trace line 15: Call function len with params '23119429488'
+Trace line 15: Call function range with params 0, 11
+Trace line 16: c = '2'
+Trace line 17: if True: ...
+Trace line 18: res = '2'
+Trace line 15: For loop: i = 0
+Trace line 16: c = '3'
+Trace line 17: if True: ...
+Trace line 18: res = '23'
+Trace line 15: For loop: i = 1
+Trace line 16: c = '1'
+Trace line 17: if True: ...
+Trace line 18: res = '231'
+Trace line 15: For loop: i = 2
+Trace line 16: c = '1'
+Trace line 17: if True: ...
+Trace line 18: res = '2311'
+Trace line 15: For loop: i = 3
+Trace line 16: c = '9'
+Trace line 17: if True: ...
+Trace line 18: res = '23119'
+Trace line 15: For loop: i = 4
+Trace line 16: c = '4'
+Trace line 17: if True: ...
+Trace line 18: res = '231194'
+Trace line 15: For loop: i = 5
+Trace line 16: c = '2'
+Trace line 17: if True: ...
+Trace line 18: res = '2311942'
+Trace line 15: For loop: i = 6
+Trace line 16: c = '9'
+Trace line 17: if True: ...
+Trace line 18: res = '23119429'
+Trace line 15: For loop: i = 7
+Trace line 16: c = '4'
+Trace line 17: if True: ...
+Trace line 18: res = '231194294'
+Trace line 15: For loop: i = 8
+Trace line 16: c = '8'
+Trace line 17: if True: ...
+Trace line 18: res = '2311942948'
+Trace line 15: For loop: i = 9
+Trace line 16: c = '8'
+Trace line 17: if True: ...
+Trace line 18: res = '23119429488'
+Trace line 15: For loop: i = 10
+Trace line 21: return '23119429488'
+Trace line 36: fnr = '23119429488'
+Trace line 24: while True: ...
+Trace line 25: Call function len with params '23119429488'
+Trace line 25: Call function len with params '23119429488'
+Trace line 25: else: ...
+Trace line 28: sifre = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Trace line 29: Call function range with params 0, 11
+Trace line 30: Call function int with params '2'
+Trace line 30: sifre[0] = 2
+Trace line 29: For loop: i = 0
+Trace line 30: Call function int with params '3'
+Trace line 30: sifre[1] = 3
+Trace line 29: For loop: i = 1
+Trace line 30: Call function int with params '1'
+Trace line 30: sifre[2] = 1
+Trace line 29: For loop: i = 2
+Trace line 30: Call function int with params '1'
+Trace line 30: sifre[3] = 1
+Trace line 29: For loop: i = 3
+Trace line 30: Call function int with params '9'
+Trace line 30: sifre[4] = 9
+Trace line 29: For loop: i = 4
+Trace line 30: Call function int with params '4'
+Trace line 30: sifre[5] = 4
+Trace line 29: For loop: i = 5
+Trace line 30: Call function int with params '2'
+Trace line 30: sifre[6] = 2
+Trace line 29: For loop: i = 6
+Trace line 30: Call function int with params '9'
+Trace line 30: sifre[7] = 9
+Trace line 29: For loop: i = 7
+Trace line 30: Call function int with params '4'
+Trace line 30: sifre[8] = 4
+Trace line 29: For loop: i = 8
+Trace line 30: Call function int with params '8'
+Trace line 30: sifre[9] = 8
+Trace line 29: For loop: i = 9
+Trace line 30: Call function int with params '8'
+Trace line 30: sifre[10] = 8
+Trace line 29: For loop: i = 10
+Trace line 31: Call function sjekk_kontrollsiffer with params 9, [3, 7, 6, 1, 8, 9, 4, 5, 2]
+Trace line 8: sum = 0
+Trace line 9: Call function range with params 0, 9
+Trace line 10: sum = 6
+Trace line 9: For loop: i = 0
+Trace line 10: sum = 27
+Trace line 9: For loop: i = 1
+Trace line 10: sum = 33
+Trace line 9: For loop: i = 2
+Trace line 10: sum = 34
+Trace line 9: For loop: i = 3
+Trace line 10: sum = 106
+Trace line 9: For loop: i = 4
+Trace line 10: sum = 142
+Trace line 9: For loop: i = 5
+Trace line 10: sum = 150
+Trace line 9: For loop: i = 6
+Trace line 10: sum = 195
+Trace line 9: For loop: i = 7
+Trace line 10: sum = 203
+Trace line 9: For loop: i = 8
+Trace line 11: return False
+Trace line 31: else: ...
+Trace line 34: Call function print with params 'Fødselsnummer', '23119429488', 'har feil i kontrollsiffer.'
+Trace line 36: Call function input with params 'Fødselsnummer: '
+Trace line 36: Call function kun_sifre with params '23119428488'
+Trace line 14: res = ''
+Trace line 15: Call function len with params '23119428488'
+Trace line 15: Call function range with params 0, 11
+Trace line 16: c = '2'
+Trace line 17: if True: ...
+Trace line 18: res = '2'
+Trace line 15: For loop: i = 0
+Trace line 16: c = '3'
+Trace line 17: if True: ...
+Trace line 18: res = '23'
+Trace line 15: For loop: i = 1
+Trace line 16: c = '1'
+Trace line 17: if True: ...
+Trace line 18: res = '231'
+Trace line 15: For loop: i = 2
+Trace line 16: c = '1'
+Trace line 17: if True: ...
+Trace line 18: res = '2311'
+Trace line 15: For loop: i = 3
+Trace line 16: c = '9'
+Trace line 17: if True: ...
+Trace line 18: res = '23119'
+Trace line 15: For loop: i = 4
+Trace line 16: c = '4'
+Trace line 17: if True: ...
+Trace line 18: res = '231194'
+Trace line 15: For loop: i = 5
+Trace line 16: c = '2'
+Trace line 17: if True: ...
+Trace line 18: res = '2311942'
+Trace line 15: For loop: i = 6
+Trace line 16: c = '8'
+Trace line 17: if True: ...
+Trace line 18: res = '23119428'
+Trace line 15: For loop: i = 7
+Trace line 16: c = '4'
+Trace line 17: if True: ...
+Trace line 18: res = '231194284'
+Trace line 15: For loop: i = 8
+Trace line 16: c = '8'
+Trace line 17: if True: ...
+Trace line 18: res = '2311942848'
+Trace line 15: For loop: i = 9
+Trace line 16: c = '8'
+Trace line 17: if True: ...
+Trace line 18: res = '23119428488'
+Trace line 15: For loop: i = 10
+Trace line 21: return '23119428488'
+Trace line 36: fnr = '23119428488'
+Trace line 24: while True: ...
+Trace line 25: Call function len with params '23119428488'
+Trace line 25: Call function len with params '23119428488'
+Trace line 25: else: ...
+Trace line 28: sifre = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Trace line 29: Call function range with params 0, 11
+Trace line 30: Call function int with params '2'
+Trace line 30: sifre[0] = 2
+Trace line 29: For loop: i = 0
+Trace line 30: Call function int with params '3'
+Trace line 30: sifre[1] = 3
+Trace line 29: For loop: i = 1
+Trace line 30: Call function int with params '1'
+Trace line 30: sifre[2] = 1
+Trace line 29: For loop: i = 2
+Trace line 30: Call function int with params '1'
+Trace line 30: sifre[3] = 1
+Trace line 29: For loop: i = 3
+Trace line 30: Call function int with params '9'
+Trace line 30: sifre[4] = 9
+Trace line 29: For loop: i = 4
+Trace line 30: Call function int with params '4'
+Trace line 30: sifre[5] = 4
+Trace line 29: For loop: i = 5
+Trace line 30: Call function int with params '2'
+Trace line 30: sifre[6] = 2
+Trace line 29: For loop: i = 6
+Trace line 30: Call function int with params '8'
+Trace line 30: sifre[7] = 8
+Trace line 29: For loop: i = 7
+Trace line 30: Call function int with params '4'
+Trace line 30: sifre[8] = 4
+Trace line 29: For loop: i = 8
+Trace line 30: Call function int with params '8'
+Trace line 30: sifre[9] = 8
+Trace line 29: For loop: i = 9
+Trace line 30: Call function int with params '8'
+Trace line 30: sifre[10] = 8
+Trace line 29: For loop: i = 10
+Trace line 31: Call function sjekk_kontrollsiffer with params 9, [3, 7, 6, 1, 8, 9, 4, 5, 2]
+Trace line 8: sum = 0
+Trace line 9: Call function range with params 0, 9
+Trace line 10: sum = 6
+Trace line 9: For loop: i = 0
+Trace line 10: sum = 27
+Trace line 9: For loop: i = 1
+Trace line 10: sum = 33
+Trace line 9: For loop: i = 2
+Trace line 10: sum = 34
+Trace line 9: For loop: i = 3
+Trace line 10: sum = 106
+Trace line 9: For loop: i = 4
+Trace line 10: sum = 142
+Trace line 9: For loop: i = 5
+Trace line 10: sum = 150
+Trace line 9: For loop: i = 6
+Trace line 10: sum = 190
+Trace line 9: For loop: i = 7
+Trace line 10: sum = 198
+Trace line 9: For loop: i = 8
+Trace line 11: return False
+Trace line 31: else: ...
+Trace line 34: Call function print with params 'Fødselsnummer', '23119428488', 'har feil i kontrollsiffer.'
+Trace line 36: Call function input with params 'Fødselsnummer: '
+Trace line 36: Call function kun_sifre with params '23119428483'
+Trace line 14: res = ''
+Trace line 15: Call function len with params '23119428483'
+Trace line 15: Call function range with params 0, 11
+Trace line 16: c = '2'
+Trace line 17: if True: ...
+Trace line 18: res = '2'
+Trace line 15: For loop: i = 0
+Trace line 16: c = '3'
+Trace line 17: if True: ...
+Trace line 18: res = '23'
+Trace line 15: For loop: i = 1
+Trace line 16: c = '1'
+Trace line 17: if True: ...
+Trace line 18: res = '231'
+Trace line 15: For loop: i = 2
+Trace line 16: c = '1'
+Trace line 17: if True: ...
+Trace line 18: res = '2311'
+Trace line 15: For loop: i = 3
+Trace line 16: c = '9'
+Trace line 17: if True: ...
+Trace line 18: res = '23119'
+Trace line 15: For loop: i = 4
+Trace line 16: c = '4'
+Trace line 17: if True: ...
+Trace line 18: res = '231194'
+Trace line 15: For loop: i = 5
+Trace line 16: c = '2'
+Trace line 17: if True: ...
+Trace line 18: res = '2311942'
+Trace line 15: For loop: i = 6
+Trace line 16: c = '8'
+Trace line 17: if True: ...
+Trace line 18: res = '23119428'
+Trace line 15: For loop: i = 7
+Trace line 16: c = '4'
+Trace line 17: if True: ...
+Trace line 18: res = '231194284'
+Trace line 15: For loop: i = 8
+Trace line 16: c = '8'
+Trace line 17: if True: ...
+Trace line 18: res = '2311942848'
+Trace line 15: For loop: i = 9
+Trace line 16: c = '3'
+Trace line 17: if True: ...
+Trace line 18: res = '23119428483'
+Trace line 15: For loop: i = 10
+Trace line 21: return '23119428483'
+Trace line 36: fnr = '23119428483'
+Trace line 24: while True: ...
+Trace line 25: Call function len with params '23119428483'
+Trace line 25: Call function len with params '23119428483'
+Trace line 25: else: ...
+Trace line 28: sifre = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Trace line 29: Call function range with params 0, 11
+Trace line 30: Call function int with params '2'
+Trace line 30: sifre[0] = 2
+Trace line 29: For loop: i = 0
+Trace line 30: Call function int with params '3'
+Trace line 30: sifre[1] = 3
+Trace line 29: For loop: i = 1
+Trace line 30: Call function int with params '1'
+Trace line 30: sifre[2] = 1
+Trace line 29: For loop: i = 2
+Trace line 30: Call function int with params '1'
+Trace line 30: sifre[3] = 1
+Trace line 29: For loop: i = 3
+Trace line 30: Call function int with params '9'
+Trace line 30: sifre[4] = 9
+Trace line 29: For loop: i = 4
+Trace line 30: Call function int with params '4'
+Trace line 30: sifre[5] = 4
+Trace line 29: For loop: i = 5
+Trace line 30: Call function int with params '2'
+Trace line 30: sifre[6] = 2
+Trace line 29: For loop: i = 6
+Trace line 30: Call function int with params '8'
+Trace line 30: sifre[7] = 8
+Trace line 29: For loop: i = 7
+Trace line 30: Call function int with params '4'
+Trace line 30: sifre[8] = 4
+Trace line 29: For loop: i = 8
+Trace line 30: Call function int with params '8'
+Trace line 30: sifre[9] = 8
+Trace line 29: For loop: i = 9
+Trace line 30: Call function int with params '3'
+Trace line 30: sifre[10] = 3
+Trace line 29: For loop: i = 10
+Trace line 31: Call function sjekk_kontrollsiffer with params 9, [3, 7, 6, 1, 8, 9, 4, 5, 2]
+Trace line 8: sum = 0
+Trace line 9: Call function range with params 0, 9
+Trace line 10: sum = 6
+Trace line 9: For loop: i = 0
+Trace line 10: sum = 27
+Trace line 9: For loop: i = 1
+Trace line 10: sum = 33
+Trace line 9: For loop: i = 2
+Trace line 10: sum = 34
+Trace line 9: For loop: i = 3
+Trace line 10: sum = 106
+Trace line 9: For loop: i = 4
+Trace line 10: sum = 142
+Trace line 9: For loop: i = 5
+Trace line 10: sum = 150
+Trace line 9: For loop: i = 6
+Trace line 10: sum = 190
+Trace line 9: For loop: i = 7
+Trace line 10: sum = 198
+Trace line 9: For loop: i = 8
+Trace line 11: return False
+Trace line 31: else: ...
+Trace line 34: Call function print with params 'Fødselsnummer', '23119428483', 'har feil i kontrollsiffer.'
+Trace line 36: Call function input with params 'Fødselsnummer: '
+Trace line 36: Call function kun_sifre with params '23119428481'
+Trace line 14: res = ''
+Trace line 15: Call function len with params '23119428481'
+Trace line 15: Call function range with params 0, 11
+Trace line 16: c = '2'
+Trace line 17: if True: ...
+Trace line 18: res = '2'
+Trace line 15: For loop: i = 0
+Trace line 16: c = '3'
+Trace line 17: if True: ...
+Trace line 18: res = '23'
+Trace line 15: For loop: i = 1
+Trace line 16: c = '1'
+Trace line 17: if True: ...
+Trace line 18: res = '231'
+Trace line 15: For loop: i = 2
+Trace line 16: c = '1'
+Trace line 17: if True: ...
+Trace line 18: res = '2311'
+Trace line 15: For loop: i = 3
+Trace line 16: c = '9'
+Trace line 17: if True: ...
+Trace line 18: res = '23119'
+Trace line 15: For loop: i = 4
+Trace line 16: c = '4'
+Trace line 17: if True: ...
+Trace line 18: res = '231194'
+Trace line 15: For loop: i = 5
+Trace line 16: c = '2'
+Trace line 17: if True: ...
+Trace line 18: res = '2311942'
+Trace line 15: For loop: i = 6
+Trace line 16: c = '8'
+Trace line 17: if True: ...
+Trace line 18: res = '23119428'
+Trace line 15: For loop: i = 7
+Trace line 16: c = '4'
+Trace line 17: if True: ...
+Trace line 18: res = '231194284'
+Trace line 15: For loop: i = 8
+Trace line 16: c = '8'
+Trace line 17: if True: ...
+Trace line 18: res = '2311942848'
+Trace line 15: For loop: i = 9
+Trace line 16: c = '1'
+Trace line 17: if True: ...
+Trace line 18: res = '23119428481'
+Trace line 15: For loop: i = 10
+Trace line 21: return '23119428481'
+Trace line 36: fnr = '23119428481'
+Trace line 24: while True: ...
+Trace line 25: Call function len with params '23119428481'
+Trace line 25: Call function len with params '23119428481'
+Trace line 25: else: ...
+Trace line 28: sifre = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Trace line 29: Call function range with params 0, 11
+Trace line 30: Call function int with params '2'
+Trace line 30: sifre[0] = 2
+Trace line 29: For loop: i = 0
+Trace line 30: Call function int with params '3'
+Trace line 30: sifre[1] = 3
+Trace line 29: For loop: i = 1
+Trace line 30: Call function int with params '1'
+Trace line 30: sifre[2] = 1
+Trace line 29: For loop: i = 2
+Trace line 30: Call function int with params '1'
+Trace line 30: sifre[3] = 1
+Trace line 29: For loop: i = 3
+Trace line 30: Call function int with params '9'
+Trace line 30: sifre[4] = 9
+Trace line 29: For loop: i = 4
+Trace line 30: Call function int with params '4'
+Trace line 30: sifre[5] = 4
+Trace line 29: For loop: i = 5
+Trace line 30: Call function int with params '2'
+Trace line 30: sifre[6] = 2
+Trace line 29: For loop: i = 6
+Trace line 30: Call function int with params '8'
+Trace line 30: sifre[7] = 8
+Trace line 29: For loop: i = 7
+Trace line 30: Call function int with params '4'
+Trace line 30: sifre[8] = 4
+Trace line 29: For loop: i = 8
+Trace line 30: Call function int with params '8'
+Trace line 30: sifre[9] = 8
+Trace line 29: For loop: i = 9
+Trace line 30: Call function int with params '1'
+Trace line 30: sifre[10] = 1
+Trace line 29: For loop: i = 10
+Trace line 31: Call function sjekk_kontrollsiffer with params 9, [3, 7, 6, 1, 8, 9, 4, 5, 2]
+Trace line 8: sum = 0
+Trace line 9: Call function range with params 0, 9
+Trace line 10: sum = 6
+Trace line 9: For loop: i = 0
+Trace line 10: sum = 27
+Trace line 9: For loop: i = 1
+Trace line 10: sum = 33
+Trace line 9: For loop: i = 2
+Trace line 10: sum = 34
+Trace line 9: For loop: i = 3
+Trace line 10: sum = 106
+Trace line 9: For loop: i = 4
+Trace line 10: sum = 142
+Trace line 9: For loop: i = 5
+Trace line 10: sum = 150
+Trace line 9: For loop: i = 6
+Trace line 10: sum = 190
+Trace line 9: For loop: i = 7
+Trace line 10: sum = 198
+Trace line 9: For loop: i = 8
+Trace line 11: return False
+Trace line 31: else: ...
+Trace line 34: Call function print with params 'Fødselsnummer', '23119428481', 'har feil i kontrollsiffer.'
+Trace line 36: Call function input with params 'Fødselsnummer: '

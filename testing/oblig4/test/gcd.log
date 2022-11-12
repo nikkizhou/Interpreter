@@ -1,6 +1,23 @@
-
-def GCD (m, n): 
-  ifn == 0:
-    return melse: 
-    return GCD(n, m%n)
-v1=int(input("A number: "))v2=int(input("Another number: "))res=GCD(v1, v2)print("GCD("+str(v1)+","+str(v2)+") =", res)
+Trace line 8: def GCD
+Trace line 14: Call function input with params 'A number: '
+Trace line 14: Call function int with params '34'
+Trace line 14: v1 = 34
+Trace line 15: Call function input with params 'Another number: '
+Trace line 15: Call function int with params '12'
+Trace line 15: v2 = 12
+Trace line 17: Call function GCD with params 34, 12
+Trace line 9: else: ...
+Trace line 12: Call function GCD with params 12, 10
+Trace line 9: else: ...
+Trace line 12: Call function GCD with params 10, 2
+Trace line 9: else: ...
+Trace line 12: Call function GCD with params 2, 0
+Trace line 9: if True: ...
+Trace line 10: return 2
+Trace line 12: return 2
+Trace line 12: return 2
+Trace line 12: return 2
+Trace line 17: res = 2
+Trace line 18: Call function str with params 34
+Trace line 18: Call function str with params 12
+Trace line 18: Call function print with params 'GCD(34,12) =', 2

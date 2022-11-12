@@ -19,7 +19,7 @@ public class RuntimeFloatValue extends RuntimeValue {
   }
 
   @Override
-  public String showInfo() {
+  public String toString() {
     return (floatValue + "");
   }
   

@@ -1,6 +1,7 @@
 package no.uio.ifi.asp.parser;
 
 import java.util.ArrayList;
+import no.uio.ifi.asp.main.*;
 import no.uio.ifi.asp.scanner.Scanner;
 import static no.uio.ifi.asp.scanner.TokenKind.*;
 import no.uio.ifi.asp.runtime.*;
@@ -43,6 +44,13 @@ public class AspPrimary extends AspSyntax{
       else {
         RuntimeValue arguments = suffix.eval(curScope);
         ArrayList<RuntimeValue> argumentsList = ((RuntimeListValue) arguments).listValue;
+        String arguementsStr = "";
+        for (RuntimeValue value : argumentsList) {
+          arguementsStr += value.toString()+",";
+        }
+        // if no param, then don't show 'with params'
+        String params = arguementsStr.length()!=0 ? " with params " + arguementsStr : "";
+        Main.log.traceEval("Call " + v.toString() + params,this);
         v = v.evalFuncCall(argumentsList, this);
       }
     }

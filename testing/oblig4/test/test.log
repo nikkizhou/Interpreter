@@ -1,0 +1,19 @@
+Trace line 1: m_navn = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Trace line 2: m_navn[1] = 'januar'
+Trace line 2: m_navn[2] = 'februar'
+Trace line 2: m_navn[3] = 'mars'
+Trace line 3: m_navn[4] = 'april'
+Trace line 3: m_navn[5] = 'mai'
+Trace line 3: m_navn[6] = 'juni'
+Trace line 4: m_navn[7] = 'juli'
+Trace line 4: m_navn[8] = 'august'
+Trace line 4: m_navn[9] = 'september'
+Trace line 5: m_navn[10] = 'oktober'
+Trace line 5: m_navn[11] = 'november'
+Trace line 5: m_navn[12] = 'desember'
+Trace line 7: arr = ['a', 'b', 'c', 'd', 2]
+Trace line 9: def D
+Trace line 14: Call function D with params 'juli',
+Trace line 10: Call function print with params 2,
+Trace line 12: return False
+Trace line 14: Call function print with params False,

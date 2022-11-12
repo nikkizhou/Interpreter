@@ -2,7 +2,7 @@
 # Finn alle primtall opp til n
 # ved hjelp av teknikken kalt «Eratosthenes' sil».
 
-n = 1000
+n = 100
 primes = [True] * (n+1)
 
 def find_primes ():

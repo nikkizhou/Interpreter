@@ -47,9 +47,9 @@ public class AspForStmt extends AspCompoundStmt {
       // value is myList[0], dvs 'a'
       RuntimeValue value = list.evalSubscription(new RuntimeIntValue(i), this);
       // assign: letter = 'a'
+      trace("For loop: " + name.toString() + " = " + value.showInfo());
       curScope.assign(name.name, value);
       suite.eval(curScope);
-      trace("for loop " + (i + 1) + " : " + name.toString() + " = " + value.showInfo());
     }
     
     return null;
